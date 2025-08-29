@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Femme Futures - From a Friend</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #c7c1f0;
+            color: #6a4c93;
+        }
+
+        /* Container */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background-color: #f0efe0;
+            border-radius: 15px;
+            box-shadow: 8px 8px 0px #9a82db;
+            position: relative;
+            background-image: repeating-linear-gradient(#f0efe0, #f0efe0 28px, #c7c7c7 28px, #c7c7c7 29px);
+            border-left: 15px solid #d5d2c3;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            height: 100%;
+            width: 15px;
+            background-image: repeating-linear-gradient(#d5d2c3 0px, #d5d2c3 20px, transparent 20px, transparent 25px);
+            border-radius: 15px 0 0 15px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            color: #9772e3;
+            text-shadow: 3px 3px 0px #d5bdfc;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header h2 {
+            font-size: 2em;
+            margin: 20px 0 0 0;
+            color: #9772e3;
+            font-weight: normal;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0 30px 0;
+        }
+
+        .nav-item {
+            margin: 5px 10px;
+            padding: 10px 20px;
+            background-color: #f0efe0;
+            color: #9772e3;
+            border: 2px solid #9772e3;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+
+        .nav-item:hover {
+            background-color: #9772e3;
+            color: #f0efe0;
+            transform: scale(1.05);
+        }
+
+        /* Content Sections */
+        .section {
+            background-color: #f0efe0;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 5px 5px 0px #9a82db;
+            background-image: repeating-linear-gradient(#f0efe0, #f0efe0 28px, #c7c7c7 28px, #c7c7c7 29px);
+        }
+
+        .section h2 {
+            color: #9772e3;
+            margin-top: 0;
+            border-bottom: 2px solid #9772e3;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #6a4c93;
+            margin-bottom: 20px;
+        }
+
+        /* Featured Content */
+        .featured {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border: 2px solid #9772e3;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+            box-shadow: 3px 3px 0px #9a82db;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 0px #9a82db;
+        }
+
+        .feature-card h3 {
+            color: #9772e3;
+            margin-top: 0;
+        }
+
+        .feature-card p {
+            color: #6a4c93;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0efe0;
+            background-image: repeating-linear-gradient(#f0efe0, #f0efe0 28px, #c7c7c7 28px, #c7c7c7 29px);
+            color: #6a4c93;
+            font-size: 0.9em;
+            border-radius: 15px;
+            box-shadow: 5px 5px 0px #9a82db;
+            margin-top: 40px;
+        }
+
+        /* Button Styles */
+        .btn {
+            background-color: #9772e3;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background-color: #7b5ccd;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(151, 114, 227, 0.5);
+        }
+
+        /* Announcement */
+        .announcement {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #9772e3;
+            margin: 30px 0;
+            color: #9772e3;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 3px solid #9772e3;
+            box-shadow: 5px 5px 0px #9a82db;
+        }
+
+        .contact-form h3 {
+            color: #9772e3;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #6a4c93;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #9772e3;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .mission-statement {
+            font-style: italic;
+            padding: 15px;
+            background-color: rgba(151, 114, 227, 0.1);
+            border-left: 4px solid #9772e3;
+            margin: 15px 0;
+        }
+
+        /* Archive list */
+        .archive-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .archive-item {
+            padding: 15px;
+            border-bottom: 1px dotted #9772e3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .archive-date {
+            background-color: #9772e3;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        /* Community section */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .community-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #9772e3;
+            text-align: center;
+        }
+
+        .community-item h4 {
+            margin-top: 0;
+            color: #9772e3;
+        }
+
+        /* Separator line */
+        .separator {
+            height: 3px;
+            background: linear-gradient(to right, #9772e3, #c7c1f0, #9772e3);
+            margin: 30px 0;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .featured {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .header h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Femme Futures</h1>
+            <h2>From a Friend</h2>
+        </header>
+
+        <nav class="nav">
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#archives" class="nav-item">Archives</a>
+            <a href="#community" class="nav-item">Community</a>
+            <a href="#connect" class="nav-item">Connect</a>
+        </nav>
+
+        <div class="announcement">
+            Welcome to The Femme Futures Cooperative! Join our next professional development workshop on April 15.
+        </div>
+
+        <section id="home" class="section">
+            <h2>Welcome</h2>
+            <p>Welcome to Femme Futures—a space for women and femme-identifying professionals to find resources, community, and support as you navigate workplace challenges and create positive change.</p>
+            <p>We believe in the power of collective success and creating platforms where driven individuals can thrive despite systemic barriers.</p>
+            <div style="text-align: center;">
+                <a href="#about" class="btn">Learn More About Us</a>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <section id="about" class="section">
+            <h2>About Femme Futures</h2>
+            <div class="mission-statement">
+                <p><strong>The Femme Futures Cooperative</strong> was founded with a mission to create a community space for young professionals who identify as over-achievers and activists to generate collective success by providing resources and platforms to thrive in challenging workplace environments. Our vision is to contribute to a world where driven individuals are equipped with the tools, guidance, and connections to overcome systemic barriers, fully utilize their talents, and enact positive change in their organizations and communities.</p>
+            </div>
+            <p>We understand the unique challenges faced by women and femme-identifying professionals in today's workplace. Through our network, we offer support, resources, and connections to help you navigate professional landscapes while staying true to your values and ambitions.</p>
+            <div class="featured">
+                <div class="feature-card">
+                    <h3>Professional Development</h3>
+                    <p>Workshops and resources for over-achieving professionals looking to make an impact</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mentorship</h3>
+                    <p>Connect with experienced mentors who can guide you through workplace challenges</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Advocacy Resources</h3>
+                    <p>Tools for changemakers driving positive transformation in organizations</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <section id="archives" class="section">
+            <h2>Archives</h2>
+            <p>Explore our collection of past resources, articles, and workshop materials. These archives contain valuable insights and tools to help you navigate professional challenges.</p>
+            
+            <ul class="archive-list">
+                <li class="archive-item">
+                    <span>Navigating Office Politics: A Guide for Change Agents</span>
+                    <span class="archive-date">March 2025</span>
+                </li>
+                <li class="archive-item">
+                    <span>Building Resilience: Self-Care for Activists and Over-Achievers</span>
+                    <span class="archive-date">February 2025</span>
+                </li>
+                <li class="archive-item">
+                    <span>The Art of Strategic Networking for Professional Advancement</span>
+                    <span class="archive-date">January 2025</span>
+                </li>
+                <li class="archive-item">
+                    <span>Salary Negotiation Workshop Materials and Resources</span>
+                    <span class="archive-date">December 2024</span>
+                </li>
+                <li class="archive-item">
+                    <span>Leadership Development for Transformative Professionals</span>
+                    <span class="archive-date">November 2024</span>
+                </li>
+            </ul>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="#" class="btn">View Complete Archives</a>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <section id="community" class="section">
+            <h2>Community</h2>
+            <p>Femme Futures is built on the strength of our community. Connect with like-minded professionals, participate in discussion groups, and find support from others who share your experiences and goals.</p>
+            
+            <div class="community-grid">
+                <div class="community-item">
+                    <h4>Monthly Meetups</h4>
+                    <p>Virtual and in-person gatherings</p>
+                </div>
+                <div class="community-item">
+                    <h4>Discussion Forums</h4>
+                    <p>Engage in meaningful conversations</p>
+                </div>
+                <div class="community-item">
+                    <h4>Mentorship Circles</h4>
+                    <p>Group-based guidance and support</p>
+                </div>
+                <div class="community-item">
+                    <h4>Skill Shares</h4>
+                    <p>Learn from community members</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 25px;">Our community thrives on mutual support, shared experiences, and collective problem-solving. Join us to connect with others who understand your professional journey.</p>
+            
+            <div style="text-align: center;">
+                <a href="#" class="btn">Join Our Community</a>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <section id="connect" class="section contact-form">
+            <h2>Connect With Me</h2>
+            <p>Have questions or want to learn more about Femme Futures? I'd love to hear from you! Fill out the form below, and I'll get back to you soon.</p>
+            
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry:</label>
+                    <select id="industry">
+                        <option value="">Select your industry</option>
+                        <option value="tech">Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="nonprofit">Nonprofit</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" rows="4" placeholder="Tell me about your professional goals or challenges..."></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn">Send Message</button>
+                </div>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>The Femme Futures Cooperative 2025</p>
+            <p>Empowering professionals to overcome barriers and create positive change</p>
+        </footer>
+    </div>
+</body>
+</html>

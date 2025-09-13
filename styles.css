@@ -1,0 +1,423 @@
+/**
+ * 🌸 FEMME FUTURES COOPERATIVE WEBSITE STYLES
+ * 
+ * This file makes your website look beautiful!
+ * 
+ * 🎨 BEGINNER-FRIENDLY: You can change colors and sizes easily
+ * 💜 PURPLE THEME: Main colors are #8b5cf6 and #7c3aed
+ * 📱 MOBILE-FRIENDLY: Works on phones and computers
+ * 
+ * 🔧 TO CUSTOMIZE:
+ * - Change colors by replacing the purple hex codes
+ * - Adjust sizes by changing rem values (1rem = 16px)
+ * - Update fonts in the font-family sections
+ */
+
+/* ==========================================
+   🔧 BASIC SETUP (Don't change these!)
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 📝 CHANGE FONTS HERE: Replace with your preferred fonts */
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #374151;
+    /* 📝 CHANGE BACKGROUND: Replace #fafafa with your preferred background color */
+    background-color: #fafafa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* ==========================================
+   💜 HEADER SECTION (Purple banner at top)
+   ========================================== */
+.header {
+    /* 🎨 MAIN PURPLE GRADIENT: Change these colors to customize your theme */
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(139, 92, 246, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.main-title {
+    /* 📝 CHANGE TITLE SIZE: Adjust font-size to make title bigger/smaller */
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+}
+
+/* Admin button removed for simplicity */
+
+/* ==========================================
+   📰 MAIN CONTENT AREA
+   ========================================== */
+.main-content {
+    padding: 2rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;  /* Left side wider than right side */
+    gap: 2rem;
+}
+
+/* 📱 MOBILE: Stack everything vertically on small screens */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   🔍 SEARCH BOX
+   ========================================== */
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    /* 🎨 SEARCH FOCUS COLOR: Changes when someone clicks in the search box */
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* ==========================================
+   📰 NEWSLETTER CARDS
+   ========================================== */
+.newsletter-archive {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.newsletter-card {
+    background: white;
+    /* 📝 CHANGE CARD ROUNDING: Adjust border-radius for more/less rounded corners */
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* 📝 CHANGE CARD PADDING: Adjust for more/less space inside cards */
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    /* 🎨 SUBTLE PURPLE BORDER */
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.newsletter-card:hover {
+    /* 🎨 HOVER EFFECT: Purple glow when mouse hovers over cards */
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+    transform: translateY(-2px);  /* Slightly lifts the card */
+}
+
+.newsletter-date {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+}
+
+.newsletter-title {
+    /* 📝 CHANGE TITLE FONT: This uses the fancy serif font for titles */
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1.3;
+}
+
+.newsletter-title:hover {
+    /* 🎨 TITLE HOVER: Turns purple when hovered */
+    color: #8b5cf6;
+}
+
+.newsletter-excerpt {
+    color: #374151;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.read-more-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    /* 🎨 BUTTON COLOR: Purple text for read-more buttons */
+    color: #8b5cf6;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.read-more-btn:hover {
+    /* 🎨 BUTTON HOVER: Darker purple on hover */
+    color: #7c3aed;
+}
+
+/* ==========================================
+   📱 SIDEBAR (Right side content)
+   ========================================== */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1.75rem;
+    /* 🎨 SUBTLE PURPLE BORDER on sidebar cards too */
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.signup-card {
+    /* 🎨 SIGNUP CARD: Special gradient background for newsletter signup */
+    background: linear-gradient(135deg, #faf5ff 0%, #f3f4f6 100%);
+}
+
+.coffee-card {
+    /* 🎨 SUPPORT CARD: Yellow background for support/coffee section */
+    background: #fefce8;
+}
+
+.sidebar-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.sidebar-text {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.sidebar-small {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.success-message {
+    /* 🎨 SUCCESS MESSAGE: Green background when someone subscribes */
+    background: #dcfce7;
+    border: 1px solid #86efac;
+    color: #166534;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================
+   📧 EMAIL SIGNUP FORM
+   ========================================== */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.email-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.email-input:focus {
+    outline: none;
+    /* 🎨 EMAIL INPUT FOCUS: Purple border when clicked */
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.subscribe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    /* 🎨 SUBSCRIBE BUTTON: Purple background */
+    background: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe-btn:hover {
+    /* 🎨 SUBSCRIBE HOVER: Darker purple when hovered */
+    background: #7c3aed;
+}
+
+.coffee-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    /* 🎨 SUPPORT BUTTON: Golden yellow background */
+    background: #eab308;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.coffee-btn:hover {
+    /* 🎨 SUPPORT HOVER: Darker yellow on hover */
+    background: #ca8a04;
+}
+
+/* ==========================================
+   📖 FULL NEWSLETTER VIEW
+   ========================================== */
+.newsletter-detail {
+    min-height: 100vh;
+    background: #f9fafb;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    /* 🎨 BACK BUTTON: Purple text */
+    color: #8b5cf6;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 2rem 0 1.5rem 0;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #7c3aed;
+}
+
+.newsletter-article {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.article-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.article-date {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.article-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.article-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+    color: #374151;
+}
+
+/* ==========================================
+   👨‍💼 ADMIN FEATURES - REMOVED FOR SIMPLICITY
+   ========================================== 
+   
+   Admin dashboard, forms, and management features have been removed
+   to keep the codebase simple and beginner-friendly.
+   
+   These features can be added back as future enhancements:
+   - Admin login and dashboard
+   - Newsletter creation forms
+   - Subscriber management
+   - Content editing tools
+   
+   ========================================== */
+
+/* ==========================================
+   🎉 THAT'S IT!
+   ========================================== 
+   
+   🎨 TO CHANGE THE THEME:
+   Replace these colors throughout the file:
+   - #8b5cf6 (main purple)
+   - #7c3aed (darker purple)
+   - #a855f7 (lighter purple)
+   
+   📏 TO CHANGE SIZES:
+   Look for "font-size" and "padding" values
+   1rem = 16px, 0.5rem = 8px, 2rem = 32px
+   
+   ✨ The website is now beautiful and ready!
+   ========================================== */

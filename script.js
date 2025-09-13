@@ -332,7 +332,14 @@ function showFullNewsletter(newsletter) {
     
     websiteElements.detailTitle.textContent = newsletter.title;
     websiteElements.detailDate.textContent = formatDateNicely(newsletter.date);
-    websiteElements.detailContent.innerHTML = formatNewsletterContent(newsletter.content);
+    
+    // Display content based on type - HTML preserves formatting and images
+    if (newsletter.contentType === 'html') {
+        websiteElements.detailContent.innerHTML = newsletter.content;
+    } else {
+        // Fallback for text content
+        websiteElements.detailContent.innerHTML = formatNewsletterContent(newsletter.content);
+    }
 }
 
 function hideFullNewsletter() {

@@ -110,8 +110,13 @@ async function loadNewslettersManually() {
         filteredNewsletters = [...newsletters];
         
         console.log(`🎉 Successfully loaded ${newsletters.length} out of ${data.files.length} newsletters`);
+        console.log('📰 FINAL NEWSLETTER LIST:');
+        newsletters.forEach((newsletter, index) => {
+            console.log(`${index + 1}. "${newsletter.title}" (${newsletter.date}) ${newsletter.placeholder ? '[PLACEHOLDER]' : '[LOADED]'}`);
+        });
         
         if (newsletters.length === 0) {
+            console.log('❌ NO NEWSLETTERS LOADED - Check the detailed results above');
             showErrorMessage('loading');
         }
         

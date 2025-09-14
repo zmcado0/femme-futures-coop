@@ -4,7 +4,7 @@
  * This file makes your website look beautiful!
  * 
  * 🎨 BEGINNER-FRIENDLY: You can change colors and sizes easily
- * 💜 PURPLE THEME: Main colors are #8b5cf6 and #7c3aed
+ * 💜 PURPLE THEME: Main colors are #ac86be and #7c3aed
  * 📱 MOBILE-FRIENDLY: Works on phones and computers
  * 
  * 🔧 TO CUSTOMIZE:
@@ -51,7 +51,7 @@ body {
    ========================================== */
 .header {
     /* 🎨 MAIN PURPLE GRADIENT: Change these colors to customize your theme */
-    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    background: linear-gradient(135deg, #ac86be 0%, #a855f7 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 6px rgba(139, 92, 246, 0.1);
 }

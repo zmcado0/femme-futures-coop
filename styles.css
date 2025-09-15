@@ -517,6 +517,6 @@ html {
 
 /* Selection colors */
 ::selection {
-    background: #edbfd5;
+    background: rgba(237, 191, 213, 0.3);
     color: #16537e;
 }

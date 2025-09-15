@@ -1,359 +1,389 @@
-# 🌸 Newsletter Website with Admin System
-
-**A beautiful newsletter website with password-protected editing capabilities - no backend required!**
-
----
-
-## 🆕 **What's New in This Version**
-
-### ✨ **Admin Features Added:**
-- 🔐 **Password-protected admin panel**
-- ✏️ **Create newsletters directly on the website**
-- 📝 **Edit existing newsletters after publishing**
-- 🗑️ **Delete newsletters**
-- 💾 **All data stored in browser (no server needed!)**
-- 📱 **Mobile-friendly admin interface**
-
-### 🎯 **Perfect For:**
-- Personal newsletter websites
-- Small organizations and cooperatives
-- Content creators who want easy editing
-- Anyone who wants a simple CMS without complexity
-
----
-
-## 🚀 **Quick Setup (5 Minutes)**
-
-### Step 1: Get This Website Online
-
-1. **Go to [GitHub.com](https://github.com)** and create a free account
-2. **Click "New Repository"** (the green button)
-3. **Name your repository** (like `my-newsletter-site`)
-4. **Make it Public** (required for free GitHub Pages)
-5. **Click "Create Repository"**
-
-### Step 2: Upload Your Website Files
-
-1. **Click "uploading an existing file"**
-2. **Drag and drop ALL the files** from this folder onto the page:
-   - `index.html` (main website)
-   - `script.js` (admin system functionality)
-   - `README.md` (this guide)
-3. **Write a commit message** like "Initial website upload"
-4. **Click "Commit changes"**
-
-### Step 3: Make It Live
-
-1. **Go to Settings** (tab at the top of your repository)
-2. **Scroll down to "Pages"** section
-3. **Select "Deploy from a branch"**
-4. **Choose "main"** branch and **"/ (root)"** folder
-5. **Click "Save"**
-
-**🎉 Your website is now live at:** `https://yourusername.github.io/repository-name/`
-
----
-
-## 🔐 **Admin System Guide**
-
-### **Default Password**
-The default admin password is: `femme2024`
-
-⚠️ **IMPORTANT**: Change this password before going live!
-
-### **How to Change the Admin Password:**
-
-1. **Open `script.js` in your repository**
-2. **Find line 12** that says: `const ADMIN_PASSWORD = "femme2024";`
-3. **Click the pencil icon (✏️)** to edit the file
-4. **Change `"femme2024"` to your desired password**
-5. **Click "Commit changes"**
-
-### **Accessing the Admin Panel:**
-
-1. **Go to your website**
-2. **Click "Admin" button** in the top-right corner
-3. **Enter your password**
-4. **Start creating and editing newsletters!**
-
----
-
-## 📝 **Using the Admin System**
-
-### **Creating Your First Newsletter:**
-
-1. **Access admin panel** (see above)
-2. **Click "Create New Newsletter"**
-3. **Fill in the title and content**
-4. **Use Markdown formatting** for rich text:
-   ```markdown
-   # Main Header
-   ## Subheader
-   **Bold text**
-   *Italic text*
-   
-   Regular paragraph text.
-   ```
-5. **Click "Save Newsletter"**
-6. **Your newsletter appears immediately on the website!**
-
-### **Editing Existing Newsletters:**
-
-1. **Go to admin panel**
-2. **Find the newsletter** in the list
-3. **Click "✏️ Edit"**
-4. **Make your changes**
-5. **Click "Save Newsletter"**
-6. **Changes appear instantly on your website**
-
-### **Deleting Newsletters:**
-
-1. **Go to admin panel**
-2. **Find the newsletter** to delete
-3. **Click "🗑️ Delete"**
-4. **Confirm deletion**
-5. **Newsletter is removed immediately**
-
----
-
-## 🎨 **Customizing Your Website**
-
-### **Change Website Title and Description:**
-
-Edit the `<title>` and header content in `index.html`:
-
-```html
-<!-- Line 5: Browser tab title -->
-<title>Your Newsletter Name</title>
-
-<!-- Lines 47-50: Main header -->
-<h1 class="main-title">Your Newsletter Name</h1>
-<p class="subtitle">Your description here</p>
-```
-
-### **Update About Section:**
-
-Find the about section in `index.html` (around line 92) and customize:
-
-```html
-<h3 class="sidebar-title">About Your Organization</h3>
-<p class="sidebar-text">
-  Your organization's description goes here...
-</p>
-```
-
-### **Add Your Support Link:**
-
-Update the support button (around line 137 in `index.html`):
-
-```html
-<a href="https://your-donation-link.com" class="coffee-btn">
-```
-
----
-
-## 🌟 **Key Features**
-
-### **✅ What This Website Includes:**
-
-- 🌸 **Beautiful purple theme** (fully customizable)
-- 📱 **Mobile responsive** design
-- 🔍 **Newsletter search** functionality
-- 📧 **Email subscription** form
-- 🔐 **Password-protected admin panel**
-- ✏️ **Rich text editor** with Markdown support
-- 💾 **Browser-based storage** (no database needed)
-- 🚀 **Lightning-fast** GitHub Pages hosting
-- 💰 **Completely free!**
-
-### **🎯 Perfect For:**
-
-- **Personal newsletters** and blogs
-- **Small organizations** and cooperatives
-- **Content creators** who want easy editing
-- **Non-technical users** who need a simple CMS
-- **Anyone wanting** a professional newsletter site without complexity
-
----
-
-## 📊 **How Data Storage Works**
-
-### **Browser Storage System:**
-
-- **All data stored in your visitor's browsers** (using localStorage)
-- **No server or database required**
-- **Data persists between visits**
-- **Each visitor has their own copy**
-
-### **Important Notes:**
-
-- ⚠️ **Data is stored locally** - if someone clears browser data, they lose newsletters
-- ✅ **Perfect for personal use** or small audiences
-- ✅ **No hosting costs** for databases
-- ✅ **Complete privacy** - no data sent to external servers
-
-### **For Production Use:**
-
-If you need shared data across all visitors, consider:
-- Adding a simple backend service
-- Using a headless CMS like Strapi or Contentful
-- Implementing Firebase for real-time data
-
----
-
-## 🔧 **Troubleshooting**
-
-### **"Admin button not working"**
-
-✅ Check that all files uploaded correctly  
-✅ Make sure `script.js` is in the same folder as `index.html`  
-✅ Check browser console (F12) for error messages  
-
-### **"Can't log into admin panel"**
-
-✅ Check you're using the correct password  
-✅ Remember passwords are case-sensitive  
-✅ Check if you changed the password in `script.js` correctly  
-
-### **"Newsletters not saving"**
-
-✅ Check if JavaScript is enabled in your browser  
-✅ Try refreshing the page and logging in again  
-✅ Check browser storage isn't full or blocked  
-
-### **"Website not loading"**
-
-✅ Wait 5-10 minutes for GitHub Pages to deploy  
-✅ Check repository is public  
-✅ Verify all files uploaded successfully  
-✅ Check GitHub Pages is enabled in repository settings  
-
----
-
-## 🛡️ **Security Notes**
-
-### **Password Protection:**
-
-- ✅ **Change the default password** before going live
-- ✅ **Use a strong password** (12+ characters)
-- ✅ **Don't share admin credentials** publicly
-- ⚠️ **Password is stored in JavaScript** - not suitable for highly sensitive content
-
-### **Data Privacy:**
-
-- ✅ **No external tracking** or analytics by default
-- ✅ **Data stays in user's browser** - complete privacy
-- ✅ **No cookies** or external data collection
-- ✅ **GDPR friendly** out of the box
-
----
-
-## 🎉 **Sample Content Included**
-
-Your website comes with two sample newsletters:
-
-1. **"Welcome to Femme Futures Cooperative"** - Introduction and mission
-2. **"Building Your First Cooperative"** - Step-by-step guide
-
-**To customize:** Simply use the admin panel to edit or delete these samples and add your own content!
-
----
-
-## 🚀 **Advanced Customization**
-
-### **Changing Colors:**
-
-Edit the CSS in `index.html` to change the color scheme:
-
-```css
-/* Find these purple colors and replace them: */
-#8b5cf6  /* Main purple */
-#7c3aed  /* Darker purple */
-#a855f7  /* Lighter purple */
-
-/* Example: Change to blue */
-#3b82f6  /* Main blue */
-#2563eb  /* Darker blue */  
-#60a5fa  /* Lighter blue */
-```
-
-### **Adding New Features:**
-
-The codebase is designed to be beginner-friendly:
-
-- **All code is commented** and explained
-- **Functions are clearly named** and organized
-- **Easy to extend** with new features
-- **Modular structure** makes changes simple
-
----
-
-## 📋 **Pre-Launch Checklist**
-
-Before sharing your newsletter website:
-
-- [ ] ✅ **Changed admin password** from default
-- [ ] ✅ **Updated website title** and description
-- [ ] ✅ **Customized about section** with your information  
-- [ ] ✅ **Added real support/donation link**
-- [ ] ✅ **Created your first newsletter** via admin panel
-- [ ] ✅ **Deleted or edited sample newsletters**
-- [ ] ✅ **Tested admin panel** on mobile devices
-- [ ] ✅ **Verified email signup** works as expected
-- [ ] ✅ **Tested newsletter search** functionality
-
----
-
-## 🆘 **Need Help?**
-
-### **First Steps:**
-1. **Check browser console** (press F12) for error messages
-2. **Try refreshing** the page
-3. **Clear browser cache** (Ctrl+F5 or Cmd+Shift+R)
-4. **Make sure all files uploaded** to GitHub correctly
-
-### **Common Solutions:**
-- **Admin not working**: Check `script.js` uploaded correctly
-- **Styles broken**: Check `index.html` has all CSS included
-- **Can't save newsletters**: Check JavaScript is enabled
-- **GitHub Pages not working**: Wait 10 minutes, check repository is public
-
----
-
-## 🎯 **Future Enhancements**
-
-This version focuses on simplicity, but you could add:
-
-### **Possible Additions:**
-- 📧 **Automated email sending** to subscribers
-- 📊 **Analytics dashboard** with visitor statistics  
-- 🖼️ **Image uploads** for newsletter content
-- 📱 **Mobile app** for easier admin access
-- 🌍 **Multi-language support**
-- 🔄 **Data export/import** functionality
-- 👥 **Multiple admin users** with different permissions
-
-### **Technical Improvements:**
-- 🗄️ **Database integration** for shared data
-- 🔒 **Enhanced security** with proper authentication
-- 📈 **SEO optimization** tools
-- 🎨 **Theme customizer** in admin panel
-
----
-
-## 💜 **Credits**
-
-*Made with love for cooperative communities and independent content creators everywhere.*
-
-**Features:**
-- 🌸 Beautiful, accessible design
-- 🔐 Simple but effective admin system  
-- 💾 No-database architecture
-- 📱 Mobile-first responsive design
-- 🚀 Optimized for GitHub Pages
-
-**Perfect for newsletters, blogs, small organizations, and anyone who wants beautiful, editable content without complexity!**
-
----
-
-*Happy newsletter publishing! 🎉*
+/**
+ * 🌸 FEMME FUTURES COOPERATIVE - NEWSLETTER WEBSITE
+ * 
+ * This JavaScript file handles:
+ * - Loading newsletters from .docx files
+ * - Displaying newsletter cards
+ * - Search functionality
+ * - Email subscription
+ * - Reading full newsletters
+ */
+
+// Newsletter data and state
+let newsletters = [];
+let currentSearch = '';
+
+// DOM elements
+let newsletterArchive, searchInput, emailInput, subscribeBtn, loadingState;
+let newsletterDetail, mainContent, backBtn, detailTitle, detailDate, detailContent;
+
+// Initialize the website when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeElements();
+    setupEventListeners();
+    loadNewsletters();
+});
+
+/**
+ * Get references to DOM elements
+ */
+function initializeElements() {
+    // Main content elements
+    newsletterArchive = document.getElementById('newsletterArchive');
+    searchInput = document.getElementById('searchInput');
+    emailInput = document.getElementById('emailInput');
+    subscribeBtn = document.getElementById('subscribeBtn');
+    loadingState = document.getElementById('loadingState');
+    
+    // Detail view elements
+    newsletterDetail = document.getElementById('newsletterDetail');
+    mainContent = document.getElementById('mainContent');
+    backBtn = document.getElementById('backBtn');
+    detailTitle = document.getElementById('detailTitle');
+    detailDate = document.getElementById('detailDate');
+    detailContent = document.getElementById('detailContent');
+}
+
+/**
+ * Set up event listeners for interactivity
+ */
+function setupEventListeners() {
+    // Search functionality
+    if (searchInput) {
+        searchInput.addEventListener('input', handleSearch);
+    }
+    
+    // Email subscription
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', handleSubscription);
+    }
+    
+    if (emailInput) {
+        emailInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSubscription();
+            }
+        });
+    }
+    
+    // Back button for newsletter detail
+    if (backBtn) {
+        backBtn.addEventListener('click', showMainContent);
+    }
+}
+
+/**
+ * Load newsletters from the JSON file and .docx files
+ */
+async function loadNewsletters() {
+    try {
+        console.log('Loading newsletters...');
+        
+        // Load the list of newsletter files
+        const response = await fetch('newsletters.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Newsletter files found:', data.files);
+        
+        // Load each newsletter file
+        newsletters = [];
+        for (const filename of data.files) {
+            try {
+                const newsletter = await loadDocxFile(filename);
+                if (newsletter) {
+                    newsletters.push(newsletter);
+                }
+            } catch (error) {
+                console.warn(`Failed to load ${filename}:`, error);
+            }
+        }
+        
+        // Sort newsletters by date (newest first)
+        newsletters.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        console.log('Newsletters loaded:', newsletters.length);
+        displayNewsletters();
+        
+    } catch (error) {
+        console.error('Error loading newsletters:', error);
+        showErrorState();
+    }
+}
+
+/**
+ * Load and parse a single .docx file
+ */
+async function loadDocxFile(filename) {
+    try {
+        console.log(`Loading ${filename}...`);
+        
+        const response = await fetch(filename);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const arrayBuffer = await response.arrayBuffer();
+        
+        // Use mammoth.js to extract text from .docx file
+        const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+        const content = result.value;
+        
+        if (!content || content.trim().length === 0) {
+            throw new Error('Empty document');
+        }
+        
+        // Create newsletter object
+        const newsletter = {
+            id: filename.replace(/\.[^/.]+$/, ""), // Remove extension
+            title: extractTitle(content, filename),
+            content: content,
+            excerpt: extractExcerpt(content),
+            date: extractDate(content, filename),
+            filename: filename
+        };
+        
+        console.log(`Successfully loaded: ${newsletter.title}`);
+        return newsletter;
+        
+    } catch (error) {
+        console.error(`Error loading ${filename}:`, error);
+        return null;
+    }
+}
+
+/**
+ * Extract title from document content or use filename
+ */
+function extractTitle(content, filename) {
+    const lines = content.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    
+    // Use first non-empty line as title, or filename as fallback
+    if (lines.length > 0) {
+        return lines[0].substring(0, 100); // Limit title length
+    }
+    
+    // Clean up filename for title
+    return filename
+        .replace(/\.[^/.]+$/, "") // Remove extension
+        .replace(/[-_]/g, " ") // Replace dashes and underscores with spaces
+        .replace(/\b\w/g, l => l.toUpperCase()); // Capitalize words
+}
+
+/**
+ * Extract excerpt from document content
+ */
+function extractExcerpt(content) {
+    const lines = content.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    
+    // Skip first line (title) and get next few lines for excerpt
+    const excerptLines = lines.slice(1, 4); // Get lines 2-4
+    let excerpt = excerptLines.join(' ');
+    
+    // Limit excerpt length
+    if (excerpt.length > 200) {
+        excerpt = excerpt.substring(0, 200) + '...';
+    }
+    
+    return excerpt || 'Click to read this newsletter...';
+}
+
+/**
+ * Extract or generate date for newsletter
+ */
+function extractDate(content, filename) {
+    // Try to find a date in the content
+    const dateRegex = /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\b/i;
+    const dateMatch = content.match(dateRegex);
+    
+    if (dateMatch) {
+        return new Date(dateMatch[0]).toLocaleDateString();
+    }
+    
+    // Fallback to current date
+    return new Date().toLocaleDateString();
+}
+
+/**
+ * Display newsletters in the archive
+ */
+function displayNewsletters() {
+    if (!newsletterArchive) return;
+    
+    // Hide loading state
+    if (loadingState) {
+        loadingState.style.display = 'none';
+    }
+    
+    // Filter newsletters based on search
+    const filteredNewsletters = newsletters.filter(newsletter => 
+        newsletter.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        newsletter.excerpt.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        newsletter.content.toLowerCase().includes(currentSearch.toLowerCase())
+    );
+    
+    // Clear existing content
+    newsletterArchive.innerHTML = '';
+    
+    if (filteredNewsletters.length === 0) {
+        newsletterArchive.innerHTML = `
+            <div class="newsletter-card">
+                <h2 class="newsletter-title">No newsletters found</h2>
+                <p class="newsletter-excerpt">
+                    ${currentSearch ? 'Try a different search term.' : 'No newsletters available yet.'}
+                </p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Create newsletter cards
+    filteredNewsletters.forEach(newsletter => {
+        const card = createNewsletterCard(newsletter);
+        newsletterArchive.appendChild(card);
+    });
+}
+
+/**
+ * Create a newsletter card element
+ */
+function createNewsletterCard(newsletter) {
+    const card = document.createElement('div');
+    card.className = 'newsletter-card';
+    
+    card.innerHTML = `
+        <div class="newsletter-date">
+            <span class="icon">📅</span>
+            ${newsletter.date}
+        </div>
+        <h2 class="newsletter-title">${newsletter.title}</h2>
+        <p class="newsletter-excerpt">${newsletter.excerpt}</p>
+        <button class="read-more-btn" onclick="showNewsletterDetail('${newsletter.id}')">
+            <span class="icon">📖</span>
+            Read Full Newsletter
+        </button>
+    `;
+    
+    return card;
+}
+
+/**
+ * Show full newsletter detail
+ */
+function showNewsletterDetail(newsletterId) {
+    const newsletter = newsletters.find(n => n.id === newsletterId);
+    if (!newsletter) return;
+    
+    // Populate detail view
+    if (detailTitle) detailTitle.textContent = newsletter.title;
+    if (detailDate) detailDate.textContent = newsletter.date;
+    if (detailContent) detailContent.textContent = newsletter.content;
+    
+    // Show detail view, hide main content
+    if (newsletterDetail) newsletterDetail.classList.remove('hidden');
+    if (mainContent) mainContent.classList.add('hidden');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+/**
+ * Show main content, hide newsletter detail
+ */
+function showMainContent() {
+    if (newsletterDetail) newsletterDetail.classList.add('hidden');
+    if (mainContent) mainContent.classList.remove('hidden');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+/**
+ * Handle search input
+ */
+function handleSearch(event) {
+    currentSearch = event.target.value;
+    displayNewsletters();
+}
+
+/**
+ * Handle email subscription
+ */
+function handleSubscription() {
+    if (!emailInput || !subscribeBtn) return;
+    
+    const email = emailInput.value.trim();
+    
+    if (!email) {
+        alert('Please enter your email address.');
+        return;
+    }
+    
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    
+    // Simulate subscription (you can integrate with your email service here)
+    console.log('Newsletter subscription:', email);
+    
+    // Show success message
+    const successMessage = document.getElementById('successMessage');
+    if (successMessage) {
+        successMessage.classList.remove('hidden');
+        setTimeout(() => {
+            successMessage.classList.add('hidden');
+        }, 5000);
+    }
+    
+    // Clear input
+    emailInput.value = '';
+    
+    // Optional: You can add actual email service integration here
+    // For example, with Mailchimp, ConvertKit, or other services
+}
+
+/**
+ * Validate email address
+ */
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+/**
+ * Show error state when newsletters fail to load
+ */
+function showErrorState() {
+    if (!newsletterArchive) return;
+    
+    // Hide loading state
+    if (loadingState) {
+        loadingState.style.display = 'none';
+    }
+    
+    newsletterArchive.innerHTML = `
+        <div class="newsletter-card">
+            <h2 class="newsletter-title">⚠️ Unable to Load Newsletters</h2>
+            <p class="newsletter-excerpt">
+                There was an issue loading the newsletters. Please check that:
+            </p>
+            <ul style="margin: 1rem 0; padding-left: 2rem; color: #6b7280;">
+                <li>The newsletters.json file exists</li>
+                <li>The .docx files are in the same folder</li>
+                <li>You're running this on a web server (not file://)</li>
+            </ul>
+            <button class="read-more-btn" onclick="location.reload()">
+                <span class="icon">🔄</span>
+                Try Again
+            </button>
+        </div>
+    `;
+}
+
+/**
+ * Utility function to make showNewsletterDetail available globally
+ */
+window.showNewsletterDetail = showNewsletterDetail;

@@ -131,21 +131,60 @@ async function loadNewsletters() {
         newsletters = [
             {
                 id: 'test-newsletter-1',
-                title: 'Test Newsletter 1',
-                content: '<h1>Test Newsletter 1</h1><p>This is a test newsletter to verify the UI is working.</p>',
-                textContent: 'Test Newsletter 1 This is a test newsletter to verify the UI is working.',
-                excerpt: 'This is a test newsletter to verify the UI is working.',
+                title: 'Test Newsletter: Formatting Demo',
+                content: `
+                    <h1 class="document-title">Formatting Test Newsletter</h1>
+                    <p class="center"><em>A demonstration of various formatting styles</em></p>
+
+                    <h2>Introduction</h2>
+                    <p>This is a test newsletter to verify that <strong>formatting</strong> and <em>styling</em> work correctly.</p>
+
+                    <p class="center">This text should be centered.</p>
+                    <p class="right">This text should be right-aligned.</p>
+
+                    <h3>Features Being Tested</h3>
+                    <ul>
+                        <li>Bold and italic text</li>
+                        <li>Centered and right-aligned paragraphs</li>
+                        <li>Headings with proper hierarchy</li>
+                        <li>Lists and formatting</li>
+                    </ul>
+
+                    <blockquote>
+                        This is a sample quote to test blockquote styling.
+                    </blockquote>
+
+                    <p>Images would appear here if loaded from actual Word documents.</p>
+                `,
+                textContent: 'Formatting Test Newsletter This is a test newsletter to verify formatting and styling work correctly.',
+                excerpt: 'A demonstration of various formatting styles including centered text, bold text, and proper headings.',
                 date: new Date().toLocaleDateString(),
-                filename: 'test1.docx'
+                filename: 'test-formatting.docx'
             },
             {
                 id: 'test-newsletter-2',
-                title: 'Test Newsletter 2',
-                content: '<h1>Test Newsletter 2</h1><p>Another test newsletter with <strong>bold text</strong>.</p>',
-                textContent: 'Test Newsletter 2 Another test newsletter with bold text.',
-                excerpt: 'Another test newsletter with bold text.',
+                title: 'Sample Newsletter Content',
+                content: `
+                    <h1>Sample Newsletter</h1>
+                    <p class="center">*Important Announcement*</p>
+
+                    <p>This is another test newsletter with various formatting elements to ensure the system works properly.</p>
+
+                    <h2>Key Points</h2>
+                    <p>Here are some <strong>important points</strong> to consider:</p>
+
+                    <ol>
+                        <li>Newsletter formatting is preserved</li>
+                        <li>Images display correctly</li>
+                        <li>Text alignment works as expected</li>
+                    </ol>
+
+                    <p class="center">— End of Sample —</p>
+                `,
+                textContent: 'Sample Newsletter Important Announcement This is another test newsletter with various formatting elements.',
+                excerpt: 'Another test newsletter with various formatting elements to ensure the system works properly.',
                 date: new Date().toLocaleDateString(),
-                filename: 'test2.docx'
+                filename: 'test-sample.docx'
             }
         ];
         console.log('Fallback newsletters created:', newsletters.length);
@@ -167,11 +206,53 @@ async function loadDocxFile(filename) {
         
         const arrayBuffer = await response.arrayBuffer();
         
-        // Use mammoth.js to convert to HTML (preserves images)
-        const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer });
-        const content = result.value;
+        // Use mammoth.js to convert to HTML (preserves images and formatting)
+        const options = {
+            convertImage: mammoth.images.imgElement(function(image) {
+                return image.read("base64").then(function(imageBuffer) {
+                    return {
+                        src: "data:" + image.contentType + ";base64," + imageBuffer
+                    };
+                });
+            }),
+            styleMap: [
+                "p[style-name='Title'] => h1.document-title",
+                "p[style-name='Heading 1'] => h1",
+                "p[style-name='Heading 2'] => h2",
+                "p[style-name='Heading 3'] => h3",
+                "p[style-name='Normal'] => p",
+                // Handle various center alignment styles
+                "p[style-name='center'] => p.center",
+                "p[style-name='Centre'] => p.center",
+                "p[style-name='Centered'] => p.center",
+                "p[style-name='Center'] => p.center",
+                // Handle Word's built-in alignment styles - be more specific
+                "p[align='center'] => p.center",
+                "p[align='right'] => p.right",
+                "p[align='left'] => p.left",
+                "p[align='justify'] => p.justify",
+                // Handle other common Word styles
+                "p[style-name='Quote'] => blockquote",
+                "p[style-name='Intense Quote'] => blockquote.intense",
+                // Don't automatically center everything
+                "p[style-name='Body Text'] => p",
+                "p[style-name='Normal (Web)'] => p"
+            ],
+            includeDefaultStyleMap: true
+        };
+
+        const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer }, options);
+        let content = result.value;
         const rawText = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
         const textContent = rawText.value;
+
+        // Post-process HTML to improve formatting
+        content = postProcessHtml(content);
+
+        // Log any conversion messages for debugging
+        if (result.messages && result.messages.length > 0) {
+            console.log(`Conversion messages for ${filename}:`, result.messages);
+        }
         
         if (!content || content.trim().length === 0) {
             throw new Error('Empty document');
@@ -195,6 +276,56 @@ async function loadDocxFile(filename) {
         console.error(`Error loading ${filename}:`, error);
         return null;
     }
+}
+
+/**
+ * Post-process HTML to improve formatting
+ */
+function postProcessHtml(html) {
+    if (!html) return html;
+
+    // Handle common alignment patterns that might not be caught by style mapping
+    html = html.replace(/<p([^>]*)style="[^"]*text-align:\s*center[^"]*"([^>]*)>/gi, '<p$1class="center"$2>');
+    html = html.replace(/<p([^>]*)style="[^"]*text-align:\s*right[^"]*"([^>]*)>/gi, '<p$1class="right"$2>');
+    html = html.replace(/<p([^>]*)style="[^"]*text-align:\s*left[^"]*"([^>]*)>/gi, '<p$1class="left"$2>');
+    html = html.replace(/<p([^>]*)style="[^"]*text-align:\s*justify[^"]*"([^>]*)>/gi, '<p$1class="justify"$2>');
+
+    // Look for text that appears to be centered (more conservative approach)
+    html = html.replace(/<p>(\s*[^<\n]{1,60}\s*)<\/p>/g, function(match, text) {
+        const trimmed = text.trim();
+        // Only center very specific patterns that are clearly meant to be centered
+        if (trimmed.length > 0 && trimmed.length < 60 &&
+            (
+             /^\*[^*]+\*$/.test(trimmed) || // Surrounded by single asterisks: *text*
+             /^—[^—]+—$/.test(trimmed) || // Surrounded by em dashes: —text—
+             /^-{2,}[^-]+-{2,}$/.test(trimmed) || // Surrounded by multiple dashes: --text--
+             /^[A-Z\s]{3,}$/.test(trimmed) && trimmed.length < 30 || // All caps short text
+             /^[^\w]*[A-Z][^.!?]*[^\w.!?][^\w]*$/.test(trimmed) && trimmed.length < 40 // Title-like without ending punctuation
+            )) {
+            return `<p class="center">${text}</p>`;
+        }
+        return match;
+    });
+
+    // Improve image handling
+    html = html.replace(/<img([^>]+)>/g, '<img$1 loading="lazy">');
+
+    // Wrap standalone images in centered paragraphs if not already wrapped
+    html = html.replace(/^(\s*)<img([^>]+)>(\s*)$/gm, '$1<p class="center"><img$2></p>$3');
+
+    // Clean up excessive whitespace and improve spacing
+    html = html.replace(/\n\s*\n\s*\n+/g, '\n\n'); // Multiple line breaks to double
+    html = html.replace(/<\/p>\s*<p>/g, '</p>\n<p>'); // Standardize paragraph spacing
+    html = html.replace(/<\/h[1-6]>\s*<p>/g, function(match) { return match.replace(/\s+/g, '\n'); }); // Clean heading to paragraph spacing
+    html = html.replace(/<\/p>\s*<h[1-6]/g, function(match) { return match.replace(/\s+/g, '\n'); }); // Clean paragraph to heading spacing
+
+    // Remove empty paragraphs
+    html = html.replace(/<p[^>]*>\s*<\/p>/g, '');
+
+    // Trim leading and trailing whitespace
+    html = html.trim();
+
+    return html;
 }
 
 /**
@@ -325,9 +456,10 @@ function showNewsletterDetail(newsletterId) {
     }
     console.log('Found newsletter:', newsletter.title);
     
-    // Populate detail view
-    if (detailTitle) detailTitle.textContent = newsletter.title;
-    if (detailDate) detailDate.textContent = newsletter.date;
+    // Populate detail view - only show the content without extracted title/date
+    // Hide the title and date elements since content already has its own title
+    if (detailTitle) detailTitle.style.display = 'none';
+    if (detailDate) detailDate.parentElement.style.display = 'none';
     if (detailContent) detailContent.innerHTML = newsletter.content; // Use innerHTML to show HTML/images
     
     // Show detail view, hide main content

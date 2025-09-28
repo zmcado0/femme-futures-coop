@@ -664,3 +664,212 @@ body::before {
     0% { background-position: -40px 0; }
     100% { background-position: 40px 0; }
 }
+
+/* ==========================================
+   📄 NEWSLETTER DOCUMENT FORMATTING
+   ========================================== */
+
+/* Newsletter article content styling */
+.newsletter-article {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #2c2c2c;
+    max-width: none;
+}
+
+.newsletter-article h1,
+.newsletter-article h2,
+.newsletter-article h3 {
+    font-family: 'Crimson Text', serif;
+    margin: 2rem 0 1rem 0;
+    color: #2c2c2c;
+    line-height: 1.4;
+}
+
+.newsletter-article h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    border-bottom: 3px solid #6b5b95;
+    padding-bottom: 0.5rem;
+}
+
+.newsletter-article h1.document-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #6b5b95;
+}
+
+.newsletter-article h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #6b5b95;
+}
+
+.newsletter-article h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #88d8b0;
+}
+
+.newsletter-article p {
+    margin: 1.2rem 0;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: left; /* Default to left alignment, not justified */
+}
+
+/* Centered text styling */
+.newsletter-article p.center,
+.newsletter-article .center {
+    text-align: center !important;
+    font-weight: 500;
+    margin: 1.5rem 0;
+}
+
+/* Right-aligned text styling */
+.newsletter-article p.right,
+.newsletter-article .right {
+    text-align: right !important;
+    margin: 1.5rem 0;
+}
+
+/* Left-aligned text styling */
+.newsletter-article p.left,
+.newsletter-article .left {
+    text-align: left !important;
+    margin: 1rem 0;
+}
+
+/* Justified text styling */
+.newsletter-article p.justify,
+.newsletter-article .justify {
+    text-align: justify !important;
+    margin: 1rem 0;
+}
+
+/* Image styling */
+.newsletter-article img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 2px solid #f4f1e8;
+}
+
+/* Centered images */
+.newsletter-article p.center img,
+.newsletter-article .center img {
+    margin: 2rem auto;
+}
+
+/* Strong/bold text */
+.newsletter-article strong,
+.newsletter-article b {
+    font-weight: 600;
+    color: #6b5b95;
+}
+
+/* Emphasis/italic text */
+.newsletter-article em,
+.newsletter-article i {
+    font-style: italic;
+    color: #88d8b0;
+}
+
+/* Lists */
+.newsletter-article ul,
+.newsletter-article ol {
+    margin: 1rem 0 1rem 2rem;
+    font-family: 'Crimson Text', serif;
+}
+
+.newsletter-article li {
+    margin: 0.5rem 0;
+    line-height: 1.7;
+}
+
+/* Blockquotes */
+.newsletter-article blockquote {
+    margin: 2rem 1rem;
+    padding: 1rem 1.5rem;
+    background: #f9f7f4;
+    border-left: 4px solid #6b5b95;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #555;
+    border-radius: 0 8px 8px 0;
+}
+
+.newsletter-article blockquote.intense {
+    background: #f4f1e8;
+    border-left-color: #88d8b0;
+    font-weight: 500;
+    color: #2c2c2c;
+}
+
+/* Tables */
+.newsletter-article table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.newsletter-article th,
+.newsletter-article td {
+    padding: 0.75rem;
+    border: 1px solid #e8e4d9;
+    text-align: left;
+}
+
+.newsletter-article th {
+    background: #f4f1e8;
+    font-weight: 600;
+    color: #6b5b95;
+}
+
+/* Document spacing */
+.newsletter-article > *:first-child {
+    margin-top: 0;
+}
+
+.newsletter-article > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile responsiveness for document content */
+@media (max-width: 768px) {
+    .newsletter-article {
+        font-size: 15px;
+    }
+
+    .newsletter-article h1 {
+        font-size: 2rem;
+    }
+
+    .newsletter-article h1.document-title {
+        font-size: 2.2rem;
+    }
+
+    .newsletter-article h2 {
+        font-size: 1.6rem;
+    }
+
+    .newsletter-article h3 {
+        font-size: 1.3rem;
+    }
+
+    .newsletter-article p {
+        text-align: left;
+        margin: 0.8rem 0;
+    }
+
+    .newsletter-article img {
+        margin: 1rem 0;
+    }
+}

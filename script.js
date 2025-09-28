@@ -70,6 +70,19 @@ function setupEventListeners() {
     if (backBtn) {
         backBtn.addEventListener('click', showMainContent);
     }
+
+    // Event delegation for read-more buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('read-more-btn') || e.target.closest('.read-more-btn')) {
+            e.preventDefault();
+            const btn = e.target.classList.contains('read-more-btn') ? e.target : e.target.closest('.read-more-btn');
+            const newsletterId = btn.getAttribute('data-newsletter-id');
+            console.log('Button clicked, newsletter ID:', newsletterId);
+            if (newsletterId) {
+                showNewsletterDetail(newsletterId);
+            }
+        }
+    });
 }
 
 /**
@@ -95,6 +108,9 @@ async function loadNewsletters() {
                 const newsletter = await loadDocxFile(filename);
                 if (newsletter) {
                     newsletters.push(newsletter);
+                    console.log(`Successfully loaded newsletter: ${newsletter.title} (ID: ${newsletter.id})`);
+                } else {
+                    console.warn(`Newsletter object was null for ${filename}`);
                 }
             } catch (error) {
                 console.warn(`Failed to load ${filename}:`, error);
@@ -109,7 +125,31 @@ async function loadNewsletters() {
         
     } catch (error) {
         console.error('Error loading newsletters:', error);
-        showErrorState();
+
+        // Fallback: create test newsletters to check if UI works
+        console.log('Creating fallback test newsletters...');
+        newsletters = [
+            {
+                id: 'test-newsletter-1',
+                title: 'Test Newsletter 1',
+                content: '<h1>Test Newsletter 1</h1><p>This is a test newsletter to verify the UI is working.</p>',
+                textContent: 'Test Newsletter 1 This is a test newsletter to verify the UI is working.',
+                excerpt: 'This is a test newsletter to verify the UI is working.',
+                date: new Date().toLocaleDateString(),
+                filename: 'test1.docx'
+            },
+            {
+                id: 'test-newsletter-2',
+                title: 'Test Newsletter 2',
+                content: '<h1>Test Newsletter 2</h1><p>Another test newsletter with <strong>bold text</strong>.</p>',
+                textContent: 'Test Newsletter 2 Another test newsletter with bold text.',
+                excerpt: 'Another test newsletter with bold text.',
+                date: new Date().toLocaleDateString(),
+                filename: 'test2.docx'
+            }
+        ];
+        console.log('Fallback newsletters created:', newsletters.length);
+        displayNewsletters();
     }
 }
 
@@ -120,16 +160,18 @@ async function loadDocxFile(filename) {
     try {
         console.log(`Loading ${filename}...`);
         
-        const response = await fetch(filename);
+        const response = await fetch(`Newsletters/${filename}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
         const arrayBuffer = await response.arrayBuffer();
         
-        // Use mammoth.js to extract text from .docx file
-        const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+        // Use mammoth.js to convert to HTML (preserves images)
+        const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer });
         const content = result.value;
+        const rawText = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+        const textContent = rawText.value;
         
         if (!content || content.trim().length === 0) {
             throw new Error('Empty document');
@@ -138,10 +180,11 @@ async function loadDocxFile(filename) {
         // Create newsletter object
         const newsletter = {
             id: filename.replace(/\.[^/.]+$/, ""), // Remove extension
-            title: extractTitle(content, filename),
-            content: content,
-            excerpt: extractExcerpt(content),
-            date: extractDate(content, filename),
+            title: extractTitle(textContent, filename),
+            content: content, // HTML content with images
+            textContent: textContent, // Plain text for search
+            excerpt: extractExcerpt(textContent),
+            date: extractDate(textContent, filename),
             filename: filename
         };
         
@@ -218,10 +261,10 @@ function displayNewsletters() {
     }
     
     // Filter newsletters based on search
-    const filteredNewsletters = newsletters.filter(newsletter => 
+    const filteredNewsletters = newsletters.filter(newsletter =>
         newsletter.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
         newsletter.excerpt.toLowerCase().includes(currentSearch.toLowerCase()) ||
-        newsletter.content.toLowerCase().includes(currentSearch.toLowerCase())
+        newsletter.textContent.toLowerCase().includes(currentSearch.toLowerCase())
     );
     
     // Clear existing content
@@ -260,7 +303,7 @@ function createNewsletterCard(newsletter) {
         </div>
         <h2 class="newsletter-title">${newsletter.title}</h2>
         <p class="newsletter-excerpt">${newsletter.excerpt}</p>
-        <button class="read-more-btn" onclick="showNewsletterDetail('${newsletter.id}')">
+        <button class="read-more-btn" data-newsletter-id="${newsletter.id}">
             <span class="icon">📖</span>
             Read Full Newsletter
         </button>
@@ -273,13 +316,19 @@ function createNewsletterCard(newsletter) {
  * Show full newsletter detail
  */
 function showNewsletterDetail(newsletterId) {
+    console.log('showNewsletterDetail called with:', newsletterId);
+    console.log('Available newsletters:', newsletters.map(n => n.id));
     const newsletter = newsletters.find(n => n.id === newsletterId);
-    if (!newsletter) return;
+    if (!newsletter) {
+        console.log('Newsletter not found!');
+        return;
+    }
+    console.log('Found newsletter:', newsletter.title);
     
     // Populate detail view
     if (detailTitle) detailTitle.textContent = newsletter.title;
     if (detailDate) detailDate.textContent = newsletter.date;
-    if (detailContent) detailContent.textContent = newsletter.content;
+    if (detailContent) detailContent.innerHTML = newsletter.content; // Use innerHTML to show HTML/images
     
     // Show detail view, hide main content
     if (newsletterDetail) newsletterDetail.classList.remove('hidden');

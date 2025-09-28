@@ -1,24 +1,25 @@
 /**
- * 🌸 FEMME FUTURES COOPERATIVE WEBSITE STYLES
+ * 🌸 FEMME FUTURES COOPERATIVE - REFINED PROFESSIONAL STYLES
  * 
- * Updated with custom color palette and premium fonts!
+ * Sophisticated typewriter aesthetic with elevated design
  * 
- * 🎨 NEW COLOR SCHEME:
- * - #fbe8f0 (Soft blush pink - backgrounds)
- * - #edbfd5 (Medium pink - accents)
- * - #ac86be (Muted purple - primary)
- * - #6c69b2 (Deep blue-purple - secondary)
- * - #16537e (Navy blue - text/dark elements)
+ * 🎨 REFINED COLOR SCHEME:
+ * - #faf9f6 (Warm cream - primary background)
+ * - #2c2c2c (Charcoal - primary text)
+ * - #6b5b95 (Muted purple - accents)
+ * - #88d8b0 (Sage green - highlights)
+ * - #f4f1e8 (Light cream - cards)
+ * - #d4af37 (Gold accent - buttons)
  * 
- * ✨ PREMIUM FONTS: Playfair Display + Source Sans Pro
- * 📱 MOBILE-FRIENDLY: Works on phones and computers
+ * ✨ TYPEWRITER FONTS: IBM Plex Mono + Crimson Text
+ * 📱 MOBILE-FRIENDLY with sophisticated styling
  */
 
-/* Import beautiful Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600&display=swap');
+/* Import professional typewriter and serif fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 /* ==========================================
-   🔧 BASIC SETUP
+   🔧 FOUNDATION & RESET
    ========================================== */
 * {
     margin: 0;
@@ -27,19 +28,19 @@
 }
 
 body {
-    /* Premium font stack with fallbacks */
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: #16537e;
-    /* Softer background with subtle gradient */
-    background: linear-gradient(135deg, #fbe8f0 0%, #ffffff 100%);
-    min-height: 100vh;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: #faf9f6;
+    font-size: 14px;
+    letter-spacing: 0.025em;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
 }
 
 .hidden {
@@ -48,107 +49,142 @@ body {
 
 .icon {
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 /* ==========================================
-   💜 HEADER SECTION
+   💼 HEADER - PROFESSIONAL & MINIMAL
    ========================================== */
 .header {
-    /* Clean solid color header */
-    background: #16537e;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 20px rgba(22, 83, 126, 0.25);
+    background: #2c2c2c;
+    border-bottom: 3px solid #d4af37;
+    position: relative;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 8px,
+        #d4af37 8px,
+        #d4af37 12px
+    );
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
 }
 
 .main-title {
-    /* Elegant serif font for the main title */
-    font-family: 'Playfair Display', serif;
-    font-size: 2.25rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2rem;
     font-weight: 600;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: -0.025em;
+    color: #faf9f6;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    position: relative;
+}
+
+.main-title::after {
+    content: '_';
+    animation: blink 1s infinite;
+    color: #d4af37;
+    margin-left: 0.25rem;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .subtitle {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 0.5rem;
-    font-weight: 300;
+    font-family: 'Crimson Text', serif;
+    color: #88d8b0;
+    margin-top: 0.75rem;
+    font-weight: 400;
     font-size: 1.1rem;
+    font-style: italic;
+    letter-spacing: 0.05em;
 }
 
 /* ==========================================
-   📰 MAIN CONTENT AREA
+   📰 MAIN CONTENT STRUCTURE
    ========================================== */
 .main-content {
-    padding: 2rem 0;
+    padding: 3rem 0;
+    background: #faf9f6;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
-/* 📱 MOBILE: Stack everything vertically on small screens */
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
 /* ==========================================
-   🔍 SEARCH BOX
+   🔍 SEARCH - TYPEWRITER STYLE
    ========================================== */
 .search-container {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .search-icon {
     position: absolute;
-    left: 0.75rem;
+    left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #6c69b2;
+    color: #6b5b95;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .search-input {
     width: 100%;
-    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
-    background: white;
-    border: 2px solid rgba(237, 191, 213, 0.4);
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-family: 'Source Sans Pro', sans-serif;
+    padding: 1rem 1rem 1rem 3rem;
+    background: #f4f1e8;
+    border: 2px solid #e8e4d9;
+    border-radius: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: #2c2c2c;
     transition: all 0.3s ease;
-    color: #16537e;
-    box-shadow: 0 2px 4px rgba(22, 83, 126, 0.05);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .search-input:focus {
     outline: none;
-    border-color: #ac86be;
-    box-shadow: 0 0 0 4px rgba(172, 134, 190, 0.15);
-    transform: translateY(-1px);
+    border-color: #6b5b95;
+    background: #fff;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05), 
+                0 0 0 3px rgba(107, 91, 149, 0.1);
 }
 
 .search-input::placeholder {
-    color: #6c69b2;
-    opacity: 0.7;
+    color: #8a8a8a;
+    opacity: 0.8;
 }
 
 /* ==========================================
-   📰 NEWSLETTER CARDS
+   📰 NEWSLETTER CARDS - ELEVATED DESIGN
    ========================================== */
 .newsletter-archive {
     display: flex;
@@ -157,14 +193,12 @@ body {
 }
 
 .newsletter-card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(22, 83, 126, 0.08);
-    padding: 2rem;
+    background: #f4f1e8;
+    border: 2px solid #e8e4d9;
+    padding: 2.5rem;
     transition: all 0.3s ease;
-    border: 1px solid rgba(237, 191, 213, 0.3);
     position: relative;
-    overflow: hidden;
+    box-shadow: 4px 4px 0 rgba(107, 91, 149, 0.1);
 }
 
 .newsletter-card::before {
@@ -173,33 +207,39 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #edbfd5 0%, #ac86be 50%, #6c69b2 100%);
+    height: 4px;
+    background: linear-gradient(90deg, #6b5b95 0%, #d4af37 50%, #88d8b0 100%);
 }
 
 .newsletter-card:hover {
-    box-shadow: 0 12px 32px rgba(22, 83, 126, 0.12);
-    transform: translateY(-4px);
-    border-color: rgba(172, 134, 190, 0.4);
+    background: #fff;
+    border-color: #6b5b95;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 rgba(107, 91, 149, 0.15);
 }
 
 .newsletter-date {
     display: flex;
     align-items: center;
-    font-size: 0.875rem;
-    color: #ac86be;
-    margin-bottom: 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: #6b5b95;
+    margin-bottom: 1.25rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    background: rgba(107, 91, 149, 0.1);
+    padding: 0.5rem 0.75rem;
+    display: inline-flex;
+    width: fit-content;
 }
 
 .newsletter-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.75rem;
     font-weight: 600;
-    color: #16537e;
-    margin-bottom: 1rem;
+    color: #2c2c2c;
+    margin-bottom: 1.25rem;
     cursor: pointer;
     transition: color 0.3s ease;
     line-height: 1.3;
@@ -207,41 +247,65 @@ body {
 }
 
 .newsletter-title:hover {
-    color: #ac86be;
+    color: #6b5b95;
 }
 
 .newsletter-excerpt {
-    color: #16537e;
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-    font-size: 1.05rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #4a4a4a;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.015em;
 }
 
 .read-more-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    background: linear-gradient(135deg, #edbfd5, #ac86be);
-    border: none;
-    color: white;
+    background: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    color: #faf9f6;
+    font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
     cursor: pointer;
-    font-size: 0.95rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 2rem;
+    font-size: 0.85rem;
+    padding: 0.875rem 1.5rem;
     transition: all 0.3s ease;
-    font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.read-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #d4af37;
+    transition: left 0.3s ease;
+    z-index: 1;
+}
+
+.read-more-btn:hover::before {
+    left: 0;
 }
 
 .read-more-btn:hover {
-    background: linear-gradient(135deg, #ac86be, #6c69b2);
+    border-color: #d4af37;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(172, 134, 190, 0.3);
+}
+
+.read-more-btn span {
+    position: relative;
+    z-index: 2;
 }
 
 /* ==========================================
-   📱 SIDEBAR
+   📱 SIDEBAR - PROFESSIONAL STYLING
    ========================================== */
 .sidebar {
     display: flex;
@@ -250,249 +314,306 @@ body {
 }
 
 .sidebar-card {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(22, 83, 126, 0.08);
-    padding: 2rem;
-    border: 1px solid rgba(237, 191, 213, 0.2);
+    background: #f4f1e8;
+    border: 2px solid #e8e4d9;
+    padding: 2.5rem;
     transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 rgba(107, 91, 149, 0.05);
 }
 
 .sidebar-card:hover {
-    box-shadow: 0 8px 24px rgba(22, 83, 126, 0.12);
-    transform: translateY(-2px);
+    background: #fff;
+    border-color: #d4af37;
+    transform: translateY(-1px);
+    box-shadow: 6px 6px 0 rgba(212, 175, 55, 0.1);
 }
 
 .signup-card {
-    background: linear-gradient(135deg, white 0%, #fbe8f0 100%);
-    border-color: rgba(237, 191, 213, 0.4);
+    border-color: #88d8b0;
+    position: relative;
+}
+
+.signup-card::before {
+    content: '// NEWSLETTER SIGNUP';
+    position: absolute;
+    top: -12px;
+    left: 1rem;
+    background: #f4f1e8;
+    color: #88d8b0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0 0.5rem;
 }
 
 .coffee-card {
-    background: linear-gradient(135deg, #fbe8f0 0%, white 100%);
-    border-color: rgba(172, 134, 190, 0.3);
+    border-color: #d4af37;
+    position: relative;
+}
+
+.coffee-card::before {
+    content: '// SUPPORT';
+    position: absolute;
+    top: -12px;
+    left: 1rem;
+    background: #f4f1e8;
+    color: #d4af37;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0 0.5rem;
 }
 
 .sidebar-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.4rem;
     font-weight: 600;
-    color: #16537e;
-    margin-bottom: 1rem;
+    color: #2c2c2c;
+    margin-bottom: 1.25rem;
     letter-spacing: -0.025em;
 }
 
 .sidebar-text {
-    color: #16537e;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-    font-size: 1.05rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #4a4a4a;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.015em;
 }
 
 .sidebar-small {
-    color: #ac86be;
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-family: 'Crimson Text', serif;
+    color: #6b5b95;
+    font-size: 0.95rem;
+    line-height: 1.6;
     font-style: italic;
+    letter-spacing: 0.025em;
 }
 
 .success-message {
-    background: linear-gradient(135deg, #edbfd5, #fbe8f0);
-    border: 1px solid #ac86be;
-    color: #16537e;
-    padding: 1rem 1.25rem;
-    border-radius: 0.75rem;
-    margin-bottom: 1rem;
+    background: #88d8b0;
+    border: 2px solid #7bc99c;
+    color: #2c2c2c;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.025em;
 }
 
 /* ==========================================
-   📧 EMAIL SIGNUP FORM
+   📧 FORM STYLING - TYPEWRITER AESTHETIC
    ========================================== */
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .email-input {
-    padding: 0.875rem 1.25rem;
-    border: 2px solid rgba(237, 191, 213, 0.4);
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #16537e;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e8e4d9;
+    background: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: #2c2c2c;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(22, 83, 126, 0.05);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .email-input:focus {
     outline: none;
-    border-color: #ac86be;
-    box-shadow: 0 0 0 4px rgba(172, 134, 190, 0.15);
-    transform: translateY(-1px);
+    border-color: #88d8b0;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+                0 0 0 3px rgba(136, 216, 176, 0.15);
 }
 
 .email-input::placeholder {
-    color: #6c69b2;
-    opacity: 0.7;
+    color: #8a8a8a;
+    opacity: 0.8;
 }
 
-.subscribe-btn {
-    display: flex;
+.subscribe-btn, .coffee-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.875rem 1.5rem;
-    background: linear-gradient(135deg, #ac86be, #6c69b2);
-    color: white;
-    border: none;
-    border-radius: 0.75rem;
-    font-size: 1rem;
+    padding: 1rem 1.75rem;
+    background: #88d8b0;
+    color: #2c2c2c;
+    border: 2px solid #88d8b0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 8px rgba(172, 134, 190, 0.2);
-}
-
-.subscribe-btn:hover {
-    background: linear-gradient(135deg, #6c69b2, #16537e);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(108, 105, 178, 0.3);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .coffee-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-    background: linear-gradient(135deg, #edbfd5, #ac86be);
-    color: white;
-    text-decoration: none;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 2px 8px rgba(237, 191, 213, 0.2);
+    background: #d4af37;
+    border-color: #d4af37;
 }
 
-.coffee-btn:hover {
-    background: linear-gradient(135deg, #ac86be, #6c69b2);
+.subscribe-btn::before, .coffee-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #2c2c2c;
+    transition: left 0.3s ease;
+    z-index: 1;
+}
+
+.subscribe-btn:hover::before, .coffee-btn:hover::before {
+    left: 0;
+}
+
+.subscribe-btn:hover, .coffee-btn:hover {
+    color: #faf9f6;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(172, 134, 190, 0.3);
+}
+
+.subscribe-btn span, .coffee-btn span {
+    position: relative;
+    z-index: 2;
 }
 
 /* ==========================================
-   📖 FULL NEWSLETTER VIEW
+   📖 FULL NEWSLETTER VIEW - REFINED
    ========================================== */
 .newsletter-detail {
     min-height: 100vh;
-    background: linear-gradient(135deg, #fbe8f0 0%, #ffffff 100%);
+    background: #faf9f6;
 }
 
 .back-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     background: none;
-    border: none;
-    color: #ac86be;
-    font-size: 1rem;
+    border: 2px solid #6b5b95;
+    color: #6b5b95;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
-    margin: 2rem 0 1.5rem 0;
+    margin: 2.5rem 0 2rem 0;
     transition: all 0.3s ease;
-    font-family: 'Source Sans Pro', sans-serif;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .back-btn:hover {
-    color: #6c69b2;
-    background: rgba(237, 191, 213, 0.15);
+    background: #6b5b95;
+    color: #faf9f6;
     transform: translateX(-4px);
 }
 
 .newsletter-article {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 8px 32px rgba(22, 83, 126, 0.1);
-    padding: 2.5rem;
-    border: 1px solid rgba(237, 191, 213, 0.2);
+    background: #f4f1e8;
+    border: 2px solid #e8e4d9;
+    padding: 3rem;
+    box-shadow: 8px 8px 0 rgba(107, 91, 149, 0.1);
+    position: relative;
+}
+
+.newsletter-article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6b5b95 0%, #d4af37 50%, #88d8b0 100%);
 }
 
 .article-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.25rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
     font-weight: 600;
-    color: #16537e;
-    margin-bottom: 1rem;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.025em;
     line-height: 1.2;
 }
 
 .article-date {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    color: #ac86be;
-    margin-bottom: 2rem;
+    color: #6b5b95;
+    margin-bottom: 2.5rem;
+    font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    background: rgba(107, 91, 149, 0.1);
+    padding: 0.5rem 0.75rem;
 }
 
 .article-content {
-    font-size: 1.125rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
     line-height: 1.8;
     white-space: pre-line;
-    color: #16537e;
+    color: #2c2c2c;
+    font-weight: 300;
+    letter-spacing: 0.015em;
 }
 
 .article-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.6rem;
     font-weight: 600;
-    color: #16537e;
-    margin: 2rem 0 1rem 0;
+    color: #2c2c2c;
+    margin: 2.5rem 0 1.25rem 0;
     letter-spacing: -0.025em;
 }
 
 .article-content p {
-    margin-bottom: 1.25rem;
-    color: #16537e;
+    margin-bottom: 1.5rem;
 }
 
 /* ==========================================
-   📱 RESPONSIVE DESIGN IMPROVEMENTS
+   📱 RESPONSIVE REFINEMENTS
    ========================================== */
 @media (max-width: 768px) {
+    body {
+        font-size: 13px;
+    }
+    
     .main-title {
-        font-size: 1.875rem;
+        font-size: 1.5rem;
     }
     
-    .newsletter-card {
-        padding: 1.5rem;
-    }
-    
-    .sidebar-card {
-        padding: 1.5rem;
-    }
-    
-    .newsletter-article {
+    .newsletter-card, .sidebar-card, .newsletter-article {
         padding: 2rem;
     }
     
     .article-title {
-        font-size: 1.875rem;
+        font-size: 2rem;
+    }
+    
+    .newsletter-title {
+        font-size: 1.5rem;
     }
 }
 
 /* ==========================================
-   ✨ ADDITIONAL ENHANCEMENTS
+   ✨ PROFESSIONAL TOUCHES
    ========================================== */
 
 /* Smooth scrolling */
@@ -500,30 +621,46 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Focus styles for accessibility */
+/* Professional focus styles */
 *:focus {
-    outline: 2px solid #6c69b2;
+    outline: 2px solid #d4af37;
     outline-offset: 2px;
 }
 
-/* Loading states */
-.newsletter-card.loading {
-    background: linear-gradient(90deg, #fbe8f0 25%, #edbfd5 50%, #fbe8f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-/* Selection colors */
+/* Selection styling */
 ::selection {
-    background: rgba(237, 191, 213, 0.3);
-    color: #16537e;
+    background: rgba(212, 175, 55, 0.2);
+    color: #2c2c2c;
+}
+
+/* Subtle paper texture effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(107, 91, 149, 0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Professional loading state */
+.newsletter-card.loading {
+    background: repeating-linear-gradient(
+        90deg,
+        #f4f1e8,
+        #f4f1e8 20px,
+        #e8e4d9 20px,
+        #e8e4d9 40px
+    );
+    animation: loading-sweep 2s infinite;
+}
+
+@keyframes loading-sweep {
+    0% { background-position: -40px 0; }
+    100% { background-position: 40px 0; }
 }

@@ -677,42 +677,50 @@ body::before {
     max-width: none;
 }
 
-.newsletter-article h1,
-.newsletter-article h2,
-.newsletter-article h3 {
+/* Specific styling for the content area only */
+.article-content {
+    padding: 0;
+    margin: 0;
+}
+
+/* Headings within article content */
+.article-content h1,
+.article-content h2,
+.article-content h3 {
     font-family: 'Crimson Text', serif;
     margin: 2rem 0 1rem 0;
     color: #2c2c2c;
     line-height: 1.4;
 }
 
-.newsletter-article h1 {
+.article-content h1 {
     font-size: 2.5rem;
     font-weight: 600;
     border-bottom: 3px solid #6b5b95;
     padding-bottom: 0.5rem;
 }
 
-.newsletter-article h1.document-title {
+.article-content h1.document-title {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 2rem;
     color: #6b5b95;
 }
 
-.newsletter-article h2 {
+.article-content h2 {
     font-size: 2rem;
     font-weight: 600;
     color: #6b5b95;
 }
 
-.newsletter-article h3 {
+.article-content h3 {
     font-size: 1.5rem;
     font-weight: 500;
     color: #88d8b0;
 }
 
-.newsletter-article p {
+/* Paragraphs within article content only */
+.article-content p {
     margin: 1.2rem 0;
     font-family: 'Crimson Text', serif;
     font-size: 1.1rem;
@@ -721,36 +729,36 @@ body::before {
 }
 
 /* Centered text styling */
-.newsletter-article p.center,
-.newsletter-article .center {
+.article-content p.center,
+.article-content .center {
     text-align: center !important;
     font-weight: 500;
     margin: 1.5rem 0;
 }
 
 /* Right-aligned text styling */
-.newsletter-article p.right,
-.newsletter-article .right {
+.article-content p.right,
+.article-content .right {
     text-align: right !important;
     margin: 1.5rem 0;
 }
 
 /* Left-aligned text styling */
-.newsletter-article p.left,
-.newsletter-article .left {
+.article-content p.left,
+.article-content .left {
     text-align: left !important;
     margin: 1rem 0;
 }
 
 /* Justified text styling */
-.newsletter-article p.justify,
-.newsletter-article .justify {
+.article-content p.justify,
+.article-content .justify {
     text-align: justify !important;
     margin: 1rem 0;
 }
 
 /* Image styling */
-.newsletter-article img {
+.article-content img {
     max-width: 100%;
     height: auto;
     margin: 1.5rem auto;
@@ -761,39 +769,39 @@ body::before {
 }
 
 /* Centered images */
-.newsletter-article p.center img,
-.newsletter-article .center img {
+.article-content p.center img,
+.article-content .center img {
     margin: 2rem auto;
 }
 
 /* Strong/bold text */
-.newsletter-article strong,
-.newsletter-article b {
+.article-content strong,
+.article-content b {
     font-weight: 600;
     color: #6b5b95;
 }
 
 /* Emphasis/italic text */
-.newsletter-article em,
-.newsletter-article i {
+.article-content em,
+.article-content i {
     font-style: italic;
     color: #88d8b0;
 }
 
 /* Lists */
-.newsletter-article ul,
-.newsletter-article ol {
+.article-content ul,
+.article-content ol {
     margin: 1rem 0 1rem 2rem;
     font-family: 'Crimson Text', serif;
 }
 
-.newsletter-article li {
+.article-content li {
     margin: 0.5rem 0;
     line-height: 1.7;
 }
 
 /* Blockquotes */
-.newsletter-article blockquote {
+.article-content blockquote {
     margin: 2rem 1rem;
     padding: 1rem 1.5rem;
     background: #f9f7f4;
@@ -804,7 +812,7 @@ body::before {
     border-radius: 0 8px 8px 0;
 }
 
-.newsletter-article blockquote.intense {
+.article-content blockquote.intense {
     background: #f4f1e8;
     border-left-color: #88d8b0;
     font-weight: 500;
@@ -812,7 +820,7 @@ body::before {
 }
 
 /* Tables */
-.newsletter-article table {
+.article-content table {
     width: 100%;
     margin: 1.5rem 0;
     border-collapse: collapse;
@@ -820,56 +828,77 @@ body::before {
     font-size: 0.9rem;
 }
 
-.newsletter-article th,
-.newsletter-article td {
+.article-content th,
+.article-content td {
     padding: 0.75rem;
     border: 1px solid #e8e4d9;
     text-align: left;
 }
 
-.newsletter-article th {
+.article-content th {
     background: #f4f1e8;
     font-weight: 600;
     color: #6b5b95;
 }
 
+/* Specific spacing classes from Word documents */
+.article-content p.no-spacing {
+    margin: 0;
+}
+
+.article-content p.tight-spacing {
+    margin: 0.3rem 0;
+}
+
+.article-content p.compact {
+    margin: 0.5rem 0;
+}
+
+.article-content p.body-text {
+    margin: 1rem 0;
+}
+
+.article-content p.normal-web {
+    margin: 0.8rem 0;
+}
+
 /* Document spacing */
-.newsletter-article > *:first-child {
+.article-content > *:first-child {
     margin-top: 0;
 }
 
-.newsletter-article > *:last-child {
+.article-content > *:last-child {
     margin-bottom: 0;
 }
 
 /* Mobile responsiveness for document content */
 @media (max-width: 768px) {
-    .newsletter-article {
+    .article-content {
         font-size: 15px;
     }
 
-    .newsletter-article h1 {
+    .article-content h1 {
         font-size: 2rem;
     }
 
-    .newsletter-article h1.document-title {
+    .article-content h1.document-title {
         font-size: 2.2rem;
     }
 
-    .newsletter-article h2 {
+    .article-content h2 {
         font-size: 1.6rem;
     }
 
-    .newsletter-article h3 {
+    .article-content h3 {
         font-size: 1.3rem;
     }
 
-    .newsletter-article p {
+    .article-content p {
         text-align: left;
         margin: 0.8rem 0;
     }
 
-    .newsletter-article img {
+    .article-content img {
         margin: 1rem 0;
     }
 }

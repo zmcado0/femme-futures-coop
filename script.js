@@ -226,7 +226,7 @@ async function loadDocxFile(filename) {
                 "p[style-name='Centre'] => p.center",
                 "p[style-name='Centered'] => p.center",
                 "p[style-name='Center'] => p.center",
-                // Handle Word's built-in alignment styles - be more specific
+                // Handle Word's built-in alignment styles
                 "p[align='center'] => p.center",
                 "p[align='right'] => p.right",
                 "p[align='left'] => p.left",
@@ -234,11 +234,17 @@ async function loadDocxFile(filename) {
                 // Handle other common Word styles
                 "p[style-name='Quote'] => blockquote",
                 "p[style-name='Intense Quote'] => blockquote.intense",
-                // Don't automatically center everything
-                "p[style-name='Body Text'] => p",
-                "p[style-name='Normal (Web)'] => p"
+                // Preserve specific paragraph styles with spacing
+                "p[style-name='Body Text'] => p.body-text",
+                "p[style-name='Normal (Web)'] => p.normal-web",
+                // Handle spacing-specific styles
+                "p[style-name='No Spacing'] => p.no-spacing",
+                "p[style-name='Tight'] => p.tight-spacing",
+                "p[style-name='Compact'] => p.compact"
             ],
-            includeDefaultStyleMap: true
+            includeDefaultStyleMap: true,
+            // Include more document information
+            includeEmbeddedStyleMap: true
         };
 
         const result = await mammoth.convertToHtml({ arrayBuffer: arrayBuffer }, options);
@@ -279,6 +285,58 @@ async function loadDocxFile(filename) {
 }
 
 /**
+ * Analyze document structure and improve spacing automatically
+ */
+function analyzeAndImproveSpacing(html) {
+    if (!html) return html;
+
+    // Analyze paragraph patterns to determine appropriate spacing
+    const paragraphs = html.split(/<\/p>/);
+    let improvedHtml = html;
+
+    // Look for patterns that indicate tight spacing should be used
+    const tightSpacingPatterns = [
+        // Short lines that appear to be related (like addresses, signatures, etc.)
+        /<p[^>]*>[^<]{1,50}<\/p>\s*<p[^>]*>[^<]{1,50}<\/p>/g,
+        // Lines that appear to be part of a list or structure
+        /<p[^>]*>[^<]*[:\-•·]\s*[^<]*<\/p>/g,
+        // Date/signature patterns
+        /<p[^>]*>[^<]*(date|signed|regards|sincerely|best)[^<]*<\/p>/gi
+    ];
+
+    // Apply tight spacing to related content
+    tightSpacingPatterns.forEach(pattern => {
+        improvedHtml = improvedHtml.replace(pattern, function(match) {
+            // Add tight-spacing class to paragraphs that match these patterns
+            return match.replace(/<p([^>]*)>/g, '<p$1 class="tight-spacing">');
+        });
+    });
+
+    // Look for content that should have no spacing (like multi-part headings)
+    const noSpacingPatterns = [
+        // Sequential short lines that appear to be a single unit
+        /<p[^>]*>[^<]{1,30}<\/p>\s*<p[^>]*>[^<]{1,30}<\/p>\s*<p[^>]*>[^<]{1,30}<\/p>/g
+    ];
+
+    noSpacingPatterns.forEach(pattern => {
+        improvedHtml = improvedHtml.replace(pattern, function(match) {
+            // First paragraph gets normal spacing, subsequent ones get no spacing
+            let parts = match.split('</p>');
+            if (parts.length > 1) {
+                // Keep first paragraph as-is, make subsequent ones no-spacing
+                for (let i = 1; i < parts.length - 1; i++) {
+                    parts[i] = parts[i].replace(/<p([^>]*)>/g, '<p$1 class="no-spacing">');
+                }
+                return parts.join('</p>');
+            }
+            return match;
+        });
+    });
+
+    return improvedHtml;
+}
+
+/**
  * Post-process HTML to improve formatting
  */
 function postProcessHtml(html) {
@@ -312,6 +370,9 @@ function postProcessHtml(html) {
 
     // Wrap standalone images in centered paragraphs if not already wrapped
     html = html.replace(/^(\s*)<img([^>]+)>(\s*)$/gm, '$1<p class="center"><img$2></p>$3');
+
+    // Intelligent spacing analysis and adjustment
+    html = analyzeAndImproveSpacing(html);
 
     // Clean up excessive whitespace and improve spacing
     html = html.replace(/\n\s*\n\s*\n+/g, '\n\n'); // Multiple line breaks to double

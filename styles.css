@@ -1,516 +1,262 @@
-/**
- * 🌸 FEMME FUTURES COOPERATIVE - REFINED PROFESSIONAL STYLES
- * 
- * Sophisticated typewriter aesthetic with elevated design
- * 
- * 🎨 REFINED COLOR SCHEME:
- * - #faf9f6 (Warm cream - primary background)
- * - #2c2c2c (Charcoal - primary text)
- * - #6b5b95 (Muted purple - accents)
- * - #88d8b0 (Sage green - highlights)
- * - #f4f1e8 (Light cream - cards)
- * - #d4af37 (Gold accent - buttons)
- * 
- * ✨ TYPEWRITER FONTS: IBM Plex Mono + Crimson Text
- * 📱 MOBILE-FRIENDLY with sophisticated styling
- */
+max-width: none;
+}
 
-/* Import professional typewriter and serif fonts */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-
-/* ==========================================
-   🔧 FOUNDATION & RESET
-   ========================================== */
-* {
-    margin: 0;
+.newsletter-article h1,
+.newsletter-article h2,
+.newsletter-article h3 {
+/* Specific styling for the content area only */
+.article-content {
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
 }
 
-body {
-    font-family: 'IBM Plex Mono', 'Courier New', monospace;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #2c2c2c;
-    background: #faf9f6;
-    font-size: 14px;
-    letter-spacing: 0.025em;
+/* Headings within article content */
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+font-family: 'Crimson Text', serif;
+margin: 2rem 0 1rem 0;
+color: #2c2c2c;
+line-height: 1.4;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.newsletter-article h1 {
+.article-content h1 {
+font-size: 2.5rem;
+font-weight: 600;
+border-bottom: 3px solid #6b5b95;
+padding-bottom: 0.5rem;
 }
 
-.hidden {
-    display: none !important;
+.newsletter-article h1.document-title {
+.article-content h1.document-title {
+text-align: center;
+font-size: 3rem;
+margin-bottom: 2rem;
+color: #6b5b95;
 }
 
-.icon {
-    display: inline-block;
-    margin-right: 0.75rem;
-    font-family: 'IBM Plex Mono', monospace;
+.newsletter-article h2 {
+.article-content h2 {
+font-size: 2rem;
+font-weight: 600;
+color: #6b5b95;
 }
 
-/* ==========================================
-   💼 HEADER - PROFESSIONAL & MINIMAL
-   ========================================== */
-.header {
-    background: #2c2c2c;
-    border-bottom: 3px solid #d4af37;
-    position: relative;
+.newsletter-article h3 {
+.article-content h3 {
+font-size: 1.5rem;
+font-weight: 500;
+color: #88d8b0;
 }
 
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 8px,
-        #d4af37 8px,
-        #d4af37 12px
-    );
+.newsletter-article p {
+/* Paragraphs within article content only */
+.article-content p {
+margin: 1.2rem 0;
+font-family: 'Crimson Text', serif;
+font-size: 1.1rem;
+@@ -721,36 +729,36 @@ body::before {
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2.5rem 0;
+/* Centered text styling */
+.newsletter-article p.center,
+.newsletter-article .center {
+.article-content p.center,
+.article-content .center {
+text-align: center !important;
+font-weight: 500;
+margin: 1.5rem 0;
 }
 
-.main-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #faf9f6;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    position: relative;
+/* Right-aligned text styling */
+.newsletter-article p.right,
+.newsletter-article .right {
+.article-content p.right,
+.article-content .right {
+text-align: right !important;
+margin: 1.5rem 0;
 }
 
-.main-title::after {
-    content: '_';
-    animation: blink 1s infinite;
-    color: #d4af37;
-    margin-left: 0.25rem;
+/* Left-aligned text styling */
+.newsletter-article p.left,
+.newsletter-article .left {
+.article-content p.left,
+.article-content .left {
+text-align: left !important;
+margin: 1rem 0;
 }
 
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+/* Justified text styling */
+.newsletter-article p.justify,
+.newsletter-article .justify {
+.article-content p.justify,
+.article-content .justify {
+text-align: justify !important;
+margin: 1rem 0;
 }
 
-.subtitle {
-    font-family: 'Crimson Text', serif;
-    color: #88d8b0;
-    margin-top: 0.75rem;
-    font-weight: 400;
-    font-size: 1.1rem;
-    font-style: italic;
-    letter-spacing: 0.05em;
+/* Image styling */
+.newsletter-article img {
+.article-content img {
+max-width: 100%;
+height: auto;
+margin: 1.5rem auto;
+@@ -761,39 +769,39 @@ body::before {
 }
 
-/* ==========================================
-   🧭 HEADER NAVIGATION
-   ========================================== */
-.header-nav {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+/* Centered images */
+.newsletter-article p.center img,
+.newsletter-article .center img {
+.article-content p.center img,
+.article-content .center img {
+margin: 2rem auto;
 }
 
-.header-nav-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #faf9f6;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 1rem;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
+/* Strong/bold text */
+.newsletter-article strong,
+.newsletter-article b {
+.article-content strong,
+.article-content b {
+font-weight: 600;
+color: #6b5b95;
 }
 
-.header-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #d4af37;
-    transition: width 0.3s ease;
+/* Emphasis/italic text */
+.newsletter-article em,
+.newsletter-article i {
+.article-content em,
+.article-content i {
+font-style: italic;
+color: #88d8b0;
 }
 
-.header-nav-link:hover::after {
-    width: 100%;
+/* Lists */
+.newsletter-article ul,
+.newsletter-article ol {
+.article-content ul,
+.article-content ol {
+margin: 1rem 0 1rem 2rem;
+font-family: 'Crimson Text', serif;
 }
 
-.header-nav-link:hover {
-    color: #d4af37;
+.newsletter-article li {
+.article-content li {
+margin: 0.5rem 0;
+line-height: 1.7;
 }
 
-.header-nav-link.active {
-    color: #d4af37;
-    font-weight: 600;
+/* Blockquotes */
+.newsletter-article blockquote {
+.article-content blockquote {
+margin: 2rem 1rem;
+padding: 1rem 1.5rem;
+background: #f9f7f4;
+@@ -804,72 +812,93 @@ body::before {
+border-radius: 0 8px 8px 0;
 }
 
-.header-nav-link.active::after {
-    width: 100%;
+.newsletter-article blockquote.intense {
+.article-content blockquote.intense {
+background: #f4f1e8;
+border-left-color: #88d8b0;
+font-weight: 500;
+color: #2c2c2c;
 }
 
-/* ==========================================
-   📰 MAIN CONTENT STRUCTURE
-   ========================================== */
-.main-content {
-    padding: 3rem 0;
-    background: #faf9f6;
+/* Tables */
+.newsletter-article table {
+.article-content table {
+width: 100%;
+margin: 1.5rem 0;
+border-collapse: collapse;
+font-family: 'IBM Plex Mono', monospace;
+font-size: 0.9rem;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
+.newsletter-article th,
+.newsletter-article td {
+.article-content th,
+.article-content td {
+padding: 0.75rem;
+border: 1px solid #e8e4d9;
+text-align: left;
 }
 
-@media (max-width: 1024px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.newsletter-article th {
+.article-content th {
+background: #f4f1e8;
+font-weight: 600;
+color: #6b5b95;
 }
 
-/* ==========================================
-   🔍 SEARCH - TYPEWRITER STYLE
-   ========================================== */
-.search-container {
-    position: relative;
-    margin-bottom: 2.5rem;
+/* Specific spacing classes from Word documents */
+.article-content p.no-spacing {
+    margin: 0;
 }
 
-.search-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #6b5b95;
-    font-family: 'IBM Plex Mono', monospace;
+.article-content p.tight-spacing {
+    margin: 0.3rem 0;
 }
 
-.search-input {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    background: #f4f1e8;
-    border: 2px solid #e8e4d9;
-    border-radius: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.95rem;
-    font-weight: 400;
-    letter-spacing: 0.025em;
-    color: #2c2c2c;
-    transition: all 0.3s ease;
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05);
+.article-content p.compact {
+    margin: 0.5rem 0;
 }
 
-.search-input:focus {
-    outline: none;
-    border-color: #6b5b95;
-    background: #fff;
-    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.05), 
-                0 0 0 3px rgba(107, 91, 149, 0.1);
+.article-content p.body-text {
+    margin: 1rem 0;
 }
 
-.search-input::placeholder {
-    color: #8a8a8a;
-    opacity: 0.8;
+.article-content p.normal-web {
+    margin: 0.8rem 0;
 }
 
-/* ==========================================
-   📰 NEWSLETTER CARDS - ELEVATED DESIGN
-   ========================================== */
-.newsletter-archive {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* Document spacing */
+.newsletter-article > *:first-child {
+.article-content > *:first-child {
+margin-top: 0;
 }
 
-.newsletter-card {
-    background: #f4f1e8;
-    border: 2px solid #e8e4d9;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: 4px 4px 0 rgba(107, 91, 149, 0.1);
+.newsletter-article > *:last-child {
+.article-content > *:last-child {
+margin-bottom: 0;
 }
 
-.newsletter-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #6b5b95 0%, #d4af37 50%, #88d8b0 100%);
+/* Mobile responsiveness for document content */
+@media (max-width: 768px) {
+    .newsletter-article {
+    .article-content {
+font-size: 15px;
 }
 
-.newsletter-card:hover {
-    background: #fff;
-    border-color: #6b5b95;
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 0 rgba(107, 91, 149, 0.15);
+    .newsletter-article h1 {
+    .article-content h1 {
+font-size: 2rem;
 }
 
-.newsletter-date {
-    display: flex;
-    align-items: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: #6b5b95;
-    margin-bottom: 1.25rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: rgba(107, 91, 149, 0.1);
-    padding: 0.5rem 0.75rem;
-    display: inline-flex;
-    width: fit-content;
+    .newsletter-article h1.document-title {
+    .article-content h1.document-title {
+font-size: 2.2rem;
 }
 
-.newsletter-title {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #2c2c2c;
-    margin-bottom: 1.25rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    line-height: 1.3;
-    letter-spacing: -0.025em;
+    .newsletter-article h2 {
+    .article-content h2 {
+font-size: 1.6rem;
 }
 
-.newsletter-title:hover {
-    color: #6b5b95;
+    .newsletter-article h3 {
+    .article-content h3 {
+font-size: 1.3rem;
 }
 
-.newsletter-excerpt {
-    font-family: 'IBM Plex Mono', monospace;
-    color: #4a4a4a;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 0.015em;
+    .newsletter-article p {
+    .article-content p {
+text-align: left;
+margin: 0.8rem 0;
 }
 
-.read-more-btn {
-    display: inline-flex;
-    align-items: center;
-    background: #2c2c2c;
-    border: 2px solid #2c2c2c;
-    color: #faf9f6;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 0.85rem;
-    padding: 0.875rem 1.5rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    position: relative;
-    overflow: hidden;
+    .newsletter-article img {
+    .article-content img {
+margin: 1rem 0;
 }
-
-.read-more-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: #d4af37;
-    transition: left 0.3s ease;
-    z-index: 1;
 }
-
-.read-more-btn:hover::before {
-    left: 0;
-}
-
-.read-more-btn:hover {
-    border-color: #d4af37;
-    transform: translateY(-1px);
-}
-
-.read-more-btn span {
-    position: relative;
-    z-index: 2;
-}
-
-/* ==========================================
-   📱 SIDEBAR - PROFESSIONAL STYLING
-   ========================================== */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.sidebar-card {
-    background: #f4f1e8;
-    border: 2px solid #e8e4d9;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 4px 4px 0 rgba(107, 91, 149, 0.05);
-}
-
-.sidebar-card:hover {
-    background: #fff;
-    border-color: #d4af37;
-    transform: translateY(-1px);
-    box-shadow: 6px 6px 0 rgba(212, 175, 55, 0.1);
-}
-
-.signup-card {
-    border-color: #88d8b0;
-    position: relative;
-}
-
-.signup-card::before {
-    content: '// NEWSLETTER SIGNUP';
-    position: absolute;
-    top: -12px;
-    left: 1rem;
-    background: #f4f1e8;
-    color: #88d8b0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    padding: 0 0.5rem;
-}
-
-.coffee-card {
-    border-color: #d4af37;
-    position: relative;
-}
-
-.coffee-card::before {
-    content: '// SUPPORT';
-    position: absolute;
-    top: -12px;
-    left: 1rem;
-    background: #f4f1e8;
-    color: #d4af37;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    padding: 0 0.5rem;
-}
-
-.sidebar-title {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #2c2c2c;
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.025em;
-}
-
-.sidebar-text {
-    font-family: 'IBM Plex Mono', monospace;
-    color: #4a4a4a;
-    margin-bottom: 1.25rem;
-    line-height: 1.6;
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 0.015em;
-}
-
-.sidebar-small {
-    font-family: 'Crimson Text', serif;
-    color: #6b5b95;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    font-style: italic;
-    letter-spacing: 0.025em;
-    margin-bottom: 1.25rem;
-}
-
-.success-message {
-    background: #88d8b0;
-    border: 2px solid #7bc99c;
-    color: #2c2c2c;
-    padding: 1.25rem;
-    margin-bottom: 1.25rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.025em;
-}
-
-/* ==========================================
-   🧭 SIDEBAR NAVIGATION
-   ========================================== */
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    padding: 0.875rem 1.25rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #2c2c2c;
-    text-decoration: none;
-    border: 2px solid #e8e4d9;
-    transition: all 0.3s ease;
-    letter-spacing: 0.025em;
-    background: transparent;
-}
-
-.nav-link:hover {
-    background: #88d8b0;
-    border-color: #88d8b0;
-    color: #2c2c2c;
-    transform: translateX(4px);
-}
-
-.nav-link.active {
-    background: #6b5b95;
-    border-color: #6b5b95;
-    color: #faf9f6;
-    font-weight: 600;
-}
-
-.about-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-    background: #6b5b95;
-    color: #faf9f6;
-    border: 2px solid #6b5b95;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    position: relative;
-    overflow:

@@ -1,0 +1,25 @@
+  <div id="mainContent" class="main-content">
+        <div class="container">
+            <div class="grid">
+                <!-- LEFT SIDE: Newsletter list and search -->
+                <div class="content-column">
+                    <!-- 🔍 Search box -->
+                    <div class="search-container">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="Search newsletters..." class="search-input">
+                    </div>
+
+                    <!-- 📰 Newsletter cards appear here automatically -->
+                    <div id="newsletterArchive" class="newsletter-archive">
+                        <!-- Loading message (disappears when newsletters load) -->
+                        <div id="loadingState" class="newsletter-card loading">
+                            <h2 class="newsletter-title">📥 Loading Newsletters...</h2>
+                            <p class="newsletter-excerpt">Please wait while we load your newsletters from the server.</p>
+                            <div class="loading-details">
+                                <small>• Checking newsletters.json file...</small><br>
+                                <small>• Loading .docx files from Newsletters folder...</small><br>
+                                <small>• Processing document content...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>

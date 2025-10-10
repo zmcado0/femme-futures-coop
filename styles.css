@@ -116,6 +116,56 @@ body {
     font-style: italic;
     letter-spacing: 0.05em;
 }
+/* ==========================================
+   🧭 NAVIGATION MENU - TYPEWRITER STYLE
+   ========================================== */
+.header-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: 2.5rem;
+}
+
+.header-nav-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    color: #faf9f6;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border: 2px solid transparent;
+    border-radius: 0;
+    transition: 
+        color 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+    position: relative;
+}
+
+.header-nav-link.active,
+.header-nav-link:hover {
+    color: #d4af37;
+    border-bottom: 2px solid #d4af37;
+    background: rgba(212, 175, 55, 0.07);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .header-nav {
+        margin-left: 0;
+        gap: 1rem;
+    }
+    .header-nav-link {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
 
 /* ==========================================
    📰 MAIN CONTENT STRUCTURE

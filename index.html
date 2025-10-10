@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <html lang="en">
 <head>
     <!-- Basic page information (DON'T CHANGE) -->
     <meta charset="UTF-8">
@@ -29,104 +30,134 @@
     
     <!-- 🎨 CSS: Makes everything look beautiful -->
     <link rel="stylesheet" href="styles.css">
+</head>\\
+<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Femme Futures Cooperative</title>
+    
+    <meta name="description" content="Learn about Femme Futures Cooperative - a community space for young professionals navigating the challenges of the modern workplace.">
+    <meta name="keywords" content="about, cooperative, women, economic empowerment, community, young professionals">
+    <meta name="author" content="Femme Futures Cooperative">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About - Femme Futures Cooperative">
+    <meta property="og:description" content="A conscious guide to surviving capitalism">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 
-    ========================================
-🏠 WEBSITE HEADER (Professional banner at top)
-    ========================================
-    📝 TO CUSTOMIZE: Change the text below
-    -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div>
-                    <!-- 📝 CHANGE THIS: Your main website title -->
                     <h1 class="main-title">Femme Futures Cooperative</h1>
-                    <!-- 📝 CHANGE THIS: Your subtitle/description -->
                     <p class="subtitle">A Conscious Guide to Surviving Capitalism</p>
                 </div>
-                <!-- 
-                ========================================
-                🧭 NAVIGATION MENU
-                ========================================
-                📝 TO ADD MORE LINKS: Copy a <a> tag and update href and text
-                -->
                 <nav class="header-nav">
-                    <a href="index.html" class="header-nav-link active">Newsletter</a>
-                    <a href="about.html" class="header-nav-link">About</a>
-                    <!-- 📝 ADD MORE LINKS HERE:
-                    <a href="your-page.html" class="header-nav-link">Your Page</a>
-                    -->
+                   <a href="index.html" class="header-nav-link active">About</a>
+                    <a href="https://buttondown.com/zoe_ffc/archive/" class="header-nav-link"> Archive</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- 
-    ========================================
-    📰 MAIN WEBSITE CONTENT
-    ========================================
-    This is where your newsletters appear
-    -->
-    <div id="mainContent" class="main-content">
-        <div class="container">
-            <div class="grid">
-                <!-- LEFT SIDE: Newsletter list and search -->
-                <div class="content-column">
-                    <!-- 🔍 Search box -->
-                    <div class="search-container">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" id="searchInput" placeholder="Search newsletters..." class="search-input">
-                    </div>
-
-                    <!-- 📰 Newsletter cards appear here automatically -->
-                    <div id="newsletterArchive" class="newsletter-archive">
-                        <!-- Loading message (disappears when newsletters load) -->
-                        <div id="loadingState" class="newsletter-card loading">
-                            <h2 class="newsletter-title">📥 Loading Newsletters...</h2>
-                            <p class="newsletter-excerpt">Please wait while we load your newsletters from the server.</p>
-                            <div class="loading-details">
-                                <small>• Checking newsletters.json file...</small><br>
-                                <small>• Loading .docx files from Newsletters folder...</small><br>
-                                <small>• Processing document content...</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT SIDE: Information and signup -->
-                <div class="sidebar">
-                    <!-- 
-                    📝 ABOUT SECTION - CUSTOMIZE THIS!
-                    Change the text below to describe YOUR organization
-                    -->
-                    <div class="sidebar-card">
-                        <h3 class="sidebar-title">About Femme Futures Cooperative</h3>
-                        <p class="sidebar-text">
-                            Being a young person navigating both the workplace and capitalism comes with so many challenges. 
-                            This is a space to come together around those challenges and be in community.
+            <div class="about-layout">
+                <article class="about-main">
+                    <div class="about-section">
+                        <h2 class="about-heading">The Mission</h2>
+                        <p class="about-text">
+                            The Femme Futures Cooperative was founded with a mission to create a community space for young 
+                            professionals who identify as over-achievers and activists to generate collective success by 
+                            providing resources and platforms to thrive in challenging workplace environments.
                         </p>
-                        <p class="sidebar-small">
-                            A community-driven initiative focused on empowerment, 
-                            collaboration, and sustainable futures.
+                        <p class="about-text">
+                            Our vision is to contribute to a world where driven individuals are equipped with the tools, 
+                            guidance, and connections to overcome systemic barriers, fully utilize their talents, and enact 
+                            positive change in their organizations and communities.
                         </p>
                     </div>
 
-                    <!-- 📧 Email signup form -->
+                    <div class="about-section">
+                        <h2 class="about-heading">About Me</h2>
+                        <p class="about-text">
+                            I'm Zoe — a young professional who is overthinking how this whole working thing works. I got fed 
+                            up with feeling like I was the first person to ever experience the ups and downs and questions that 
+                            come with jumping into the workforce.
+                        </p>    
+                        <p class="about-text"></p>
+                            Some days it feels like I can keep everything together and my writing will reflect that too. But don
+                            't be fooled. Most days I am a mess and I need to figure out how to keep going. This newsletter is for us to ride the ups and downs together.
+                        </p>
+                        <p class="about-text">
+                            It is my mission to talk about the things that no one talks about. We live in a capitalist system 
+                            that sometimes makes zero sense and often needs to be explained. Join me as I try to figure all of 
+                            this out.
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="about-heading">Why Subscribe?</h2>
+                        <p class="about-text emphasis">
+                            So you won't feel so alone.
+                        </p>
+                        <p class="about-text">
+                            Those days that have you crawling home from work (or your home office) have the power to make you 
+                            feel small and hopeless. I want to be the reason that you try again tomorrow.
+                        </p>
+                        <p class="about-text">
+                            Subscribe to my thoughts, reflections, and advice in your inbox every week!
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="about-heading">How This Works</h2>
+                        <p class="about-text">
+                            As a subscriber, you will receive a weekly note from me directly to your inbox. If you want to go back and read more, you have access to the full archive here on my website.
+
+                        </p>
+                        <p class="about-text">
+                            Some weeks, I will ask my close supporters for content suggestions, so pay attention to my chat. 
+                            Other times, I will provide bonus content to my subscribers that correlate with the week's content.
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="about-heading">Talk to Me</h2>
+                        <p class="about-text">
+                            The hardest part of what I do is shouting super vulnerable things into the void. If something that 
+                            I say speaks to you, tell me.
+                        </p>
+                        <p class="about-text">
+                            I am always happy to receive a direct response via email or chat, or an indirect response on some 
+                            other platform. You doing this helps me produce consistently good content because it reminds me of 
+                            my mission.
+                        </p>
+                    </div>
+
+                    <div class="about-closing">
+                        <p class="closing-text">Without further ado….</p>
+                        <p class="closing-emphasis">Welcome to the Cooperative.</p>
+                    </div>
+                </article>
+
+                <aside class="about-sidebar">
                     <div class="sidebar-card signup-card">
                         <h3 class="sidebar-title">Subscribe to Newsletter</h3>
-                        <!-- 📝 CHANGE THIS: Your signup description -->
                         <p class="sidebar-text">
                             Get access to my weekly thoughts and insights on surviving capitalism.
                         </p>
                         
-                        <!-- Success message (hidden until someone subscribes) -->
                         <div id="successMessage" class="success-message hidden">
                             Thanks for subscribing! Welcome to the cooperative.
                         </div>
                         
-                        <!-- Email signup form -->
                         <div class="signup-form">
                             <input type="email" id="emailInput" placeholder="Enter your email" class="email-input">
                             <button id="subscribeBtn" class="subscribe-btn">
@@ -136,66 +167,239 @@
                         </div>
                     </div>
 
-                    <!-- 
-                    💰 SUPPORT/DONATION SECTION
-                    📝 TO CUSTOMIZE: Update the link in the href below to your actual support page
-                    -->
                     <div class="sidebar-card coffee-card">
                         <h3 class="sidebar-title">Support This Newsletter</h3>
                         <p class="sidebar-text">
                             I say some vulnerable shit. If you think that is valuable, consider buying me a coffee to support 
                             continued research and writing.
                         </p>
-                        <!-- 🚨 IMPORTANT: Change this link to your actual support/donation page -->
-                        <a href="#" onclick="alert('Support link not configured yet. Please update this link in index.html'); return false;" class="coffee-btn">
+                        <a href="#" onclick="alert('Support link not configured yet. Please update this link in about.html'); return false;" class="coffee-btn">
                             <span class="icon">☕</span>
                             <span>Support Our Work</span>
                         </a>
                     </div>
-                </div>
+
+                    <div class="sidebar-card">
+                        <h3 class="sidebar-title">Quick Links</h3>
+                        <nav class="about-nav">
+                            <a href="https://buttondown.com/zoe_ffc/archive/" class="nav-link active">Newsletter Archive</a>
+                        </nav>
+                    </div>
+                </aside>
             </div>
         </div>
     </div>
 
-    <!-- 
-    ========================================
-    📖 FULL NEWSLETTER VIEW
-    ========================================
-    This appears when someone clicks on a newsletter
-    (Hidden by default)
-    -->
-    <div id="newsletterDetail" class="newsletter-detail hidden">
-        <div class="container">
-            <!-- Back button -->
-            <button id="backBtn" class="back-btn">
-                ← Back to Archive
-            </button>
-            
-            <!-- Full newsletter content -->
-            <article class="newsletter-article">
-                <h1 id="detailTitle" class="article-title"><!-- Newsletter title goes here --></h1>
-                <div class="article-date">
-                    <span class="icon">📅</span>
-                    <span id="detailDate"><!-- Newsletter date goes here --></span>
-                </div>
-                
-                <div id="detailContent" class="article-content">
-                    <!-- Full newsletter content goes here -->
-                </div>
-            </article>
-        </div>
-    </div>
+    <script>
+        // Email subscription functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('emailInput');
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const successMessage = document.getElementById('successMessage');
 
-    <!-- 
-    ========================================
-    🔧 JAVASCRIPT LIBRARIES & DEBUGGING
-    ========================================
-    These make the website work (DON'T CHANGE)
-    -->
-    <!-- Library for reading Word documents -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
-    
-    <!-- Main website functionality -->
-    <script src="script.js"></script>
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', handleSubscription);
+            }
+
+            if (emailInput) {
+                emailInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleSubscription();
+                    }
+                });
+            }
+
+            function handleSubscription() {
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    alert('Please enter your email address.');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                console.log('Newsletter subscription:', email);
+                
+                if (successMessage) {
+                    successMessage.classList.remove('hidden');
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000);
+                }
+                
+                emailInput.value = '';
+            }
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+
+    <style>
+        .about-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .about-main {
+            background: #f4f1e8;
+            border: 2px solid #e8e4d9;
+            padding: 3rem;
+            box-shadow: 8px 8px 0 rgba(107, 91, 149, 0.1);
+            position: relative;
+        }
+
+        .about-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6b5b95 0%, #d4af37 50%, #88d8b0 100%);
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .about-heading {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #6b5b95;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2c2c2c;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.015em;
+        }
+
+        .about-text.emphasis {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #6b5b95;
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .about-closing {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e8e4d9;
+        }
+
+        .closing-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .closing-emphasis {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6b5b95;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .about-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.875rem 1.25rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            text-decoration: none;
+            border: 2px solid #e8e4d9;
+            transition: all 0.3s ease;
+            letter-spacing: 0.025em;
+        }
+
+        .nav-link:hover {
+            background: #88d8b0;
+            border-color: #88d8b0;
+            color: #2c2c2c;
+            transform: translateX(4px);
+        }
+
+        .nav-link.active {
+            background: #6b5b95;
+            border-color: #6b5b95;
+            color: #faf9f6;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-main {
+                padding: 2rem;
+            }
+
+            .about-heading {
+                font-size: 1.6rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-main {
+                padding: 1.5rem;
+            }
+
+            .about-heading {
+                font-size: 1.4rem;
+            }
+
+            .closing-emphasis {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </body>
 </html>
